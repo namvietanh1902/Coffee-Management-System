@@ -1,4 +1,5 @@
 #include<iostream>
 using namespace std;
 class Coffe{};
-int main(){}
+int main(){
+int n;}
