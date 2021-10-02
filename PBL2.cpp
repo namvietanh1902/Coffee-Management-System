@@ -4,7 +4,7 @@ class Coffe{
     private:
         int cap;
         int mon;
-        int thinh;
+        int thinhngu;
 }
     ;
 int main(){
