@@ -10,4 +10,5 @@ class Coffe{
     ;
 int main(){
     cout<<"Thinh la nhat";
+    cout<<"nam anh la nhi";
 int n;}
