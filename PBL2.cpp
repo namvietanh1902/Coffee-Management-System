@@ -5,7 +5,9 @@ class Coffe{
         int cap;
         int mon;
         int cafe;
+
 }
     ;
 int main(){
+    cout<<"Thinh la nhat";
 int n;}
