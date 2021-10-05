@@ -73,7 +73,7 @@ std::istream& operator>>(istream &in, Nhanvien &p){
     
 int main(){
 
-    int n=100000;
+    int n=1000;
     Nhanvien *p = new Nhanvien[n];
     getInfo(p,n);
     cout<<p[0];
