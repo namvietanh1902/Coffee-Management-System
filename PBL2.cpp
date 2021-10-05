@@ -2,6 +2,7 @@
 #include<fstream>
 #include<string>
 #include<sstream>
+#include<conio.h>
 using namespace std;
 class Nhanvien{
     private:
@@ -15,20 +16,35 @@ class Nhanvien{
         friend std::ostream& operator <<(std::ostream & ,const Nhanvien &);
         friend std::istream& operator >>(std::istream &,Nhanvien &);
         friend void getInfo(Nhanvien*,int n);
+        void setName(string name){
+            this->name=name;
+        }
+        string getName(){
+            return name;
+        }
 };
+void stringCorrect(string &x){
+    int i=0;
+    while(x[i]==' '){ x.erase(i,i+1);
+    i++;} 
+
+}
 void getInfo(Nhanvien *p,int n){
     ifstream myFile;
     myFile.open("Nhanvien.txt",ios::in);
-    if(myFile.is_open()){
-        cout<<"Mo thanh cong";
+    if(!myFile.is_open()){
+        cout<<"Khong mo duoc file";
 
     }
     int i=0;
     while(!myFile.eof()){
         myFile>>p[i].stt;
         getline(myFile,p[i].name);
+        stringCorrect(p[i].name);
         myFile>>p[i].age;
+
         getline(myFile,p[i].address);
+        stringCorrect(p[i].address);
         myFile>>p[i].sdt;  
         i++;
         continue;
@@ -62,6 +78,6 @@ int main(){
     getInfo(p,n);
     cout<<p[0];
     cout<<p[1];
-   delete [] p;
+    delete [] p;
 
 }
