@@ -8,7 +8,7 @@
 using namespace std;
 class Nhanvien{
     private:
-        int stt;
+        string chucvu;
         string name;
         int age;
         string address;
