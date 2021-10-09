@@ -14,13 +14,13 @@ std::ostream& operator <<(std::ostream &out ,const Nhanvien &p){
 }
 std::istream& operator >>(std::istream &in,Nhanvien &p){
     cout<<"Nhap ten: ";getline(cin,p.name);
-    cout<<"Nhap tuoi: ";cin>>p.age;
+    cout<<"Nhap tuoi: ";cin>>p.age;getchar();
     cout<<"Nhap chuc vu: ";getline(cin,p.chucvu);
     cout<<"Nhap dia chi: ";getline(cin,p.address);
     cout<<"Nhap so dien thoai:";getline(cin,p.sdt);
     return in;
 }
-void getInfo(Nhanvien* p,int n){
+void getInfo(Nhanvien* p){
     ifstream myFile;
     myFile.open("Nhanvien/Nhanvien.txt");
     if (!myFile.is_open()){
@@ -28,6 +28,7 @@ void getInfo(Nhanvien* p,int n){
         return;
     }
     int i=0;
+    ma=0;
     while (!myFile.eof()){
         p[i].maNV=++ma;
         getline(myFile,p[i].name);
@@ -39,3 +40,60 @@ void getInfo(Nhanvien* p,int n){
         continue;
     }
 }
+void display(Nhanvien* p){
+    getInfo(p);
+    cout<<setw(10)<<left<<"MaNV";
+    cout<<setw(30)<<left<<"Ten";
+    cout<<setw(20)<<left<<"Chuc vu";
+    cout<<setw(10)<<left<<"Tuoi";
+    cout<<setw(20)<<left<<"Dia chi";
+    cout<<setw(15)<<left<<"So dien thoai"<<endl;
+    for (int i=0;i<ma-1;i++){
+    cout<<setw(10)<<left<<p[i].maNV;
+    cout<<setw(30)<<left<<p[i].name;
+    cout<<setw(20)<<left<<p[i].chucvu;
+    cout<<setw(10)<<left<<p[i].age;
+    cout<<setw(20)<<left<<p[i].address;
+    cout<<setw(15)<<left<<p[i].sdt<<endl;
+    }
+    cout<<endl;
+}
+void addNhanvien(Nhanvien* p){
+    Nhanvien x;
+    ofstream file2;
+    file2.open("Nhanvien/Nhanvien.txt",ios::app);
+    if(!file2.is_open()) return;
+    cin>>x;
+    file2<<x.name<<endl;
+    file2<<x.chucvu<<endl;
+    file2<<x.age<<" "<<x.address<<endl;
+    file2<<x.sdt<<endl;
+    getInfo(p);
+    file2.close();
+}
+void DeleteNV(Nhanvien *p){
+    int i;
+    cout<<"Nhap ma cua nhan vien ban muon xoa: ";cin>>i;
+
+    ifstream is("Nhanvien/Nhanvien.txt");
+    ofstream ofs;
+    ofs.open("Nhanvien/temp.txt", ofstream::out);
+
+    char c;
+    int line_no = 1;
+    while (is.get(c))
+    {
+        if (c == '\n')
+        line_no++;
+  
+        if (line_no <=4*(i-1)||line_no>4*i)
+            ofs << c;
+    }
+  
+    ofs.close();
+    is.close();
+    remove("Nhanvien/Nhanvien.txt");
+    rename("Nhanvien/temp.txt","Nhanvien/Nhanvien.txt");
+    getInfo(p);
+}
+

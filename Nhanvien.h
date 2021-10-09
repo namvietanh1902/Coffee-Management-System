@@ -5,8 +5,10 @@
 #include<string>
 #include<sstream>
 #include<conio.h>
+#include<iomanip>
 using namespace std;
 static int ma=0;
+
 class Nhanvien{
 
     private:
@@ -24,11 +26,13 @@ class Nhanvien{
         }
         friend std::ostream& operator <<(std::ostream & ,const Nhanvien &);
         friend std::istream& operator >>(std::istream &,Nhanvien &);
-        friend void getInfo(Nhanvien*,int n);
+        friend void getInfo(Nhanvien*);
         void setName(string name);
         string getName();
-        void display();
-        friend void display();
+      
+        friend void display(Nhanvien*);
+        friend void addNhanvien(Nhanvien *p);
+        friend void DeleteNV(Nhanvien*p);
 };
 
 #endif
