@@ -5,11 +5,10 @@
 #include "Nhanvien.h"
 using namespace std;
 std::ostream& operator <<(std::ostream &out ,const Nhanvien &p){
-    out<<"Ma Nhan Vien: "<<p.maNV<<endl;
-    out<<"Ten: "<<p.name<<endl;
-    out<<"Tuoi: "<<p.age<<endl;
-    out<<"Dia chi: "<<p.address<<endl;
-    out<<"SDT: "<<p.sdt<<endl;
+    out<<p.name<<endl;
+    out<<p.chucvu<<endl;
+    out<<p.age<<" "<<p.address<<endl;
+    out<<p.sdt<<endl;
     return out;
 }
 std::istream& operator >>(std::istream &in,Nhanvien &p){
@@ -64,10 +63,7 @@ void addNhanvien(Nhanvien* p){
     file2.open("Nhanvien/Nhanvien.txt",ios::app);
     if(!file2.is_open()) return;
     cin>>x;
-    file2<<x.name<<endl;
-    file2<<x.chucvu<<endl;
-    file2<<x.age<<" "<<x.address<<endl;
-    file2<<x.sdt<<endl;
+    file2<<x;
     getInfo(p);
     file2.close();
 }
@@ -83,10 +79,7 @@ void DeleteNV(Nhanvien *p){
     for(int j=0;j<ma-1;j++){
         if(j!=i-1){
 
-    file2<<p[j].name<<endl;
-    file2<<p[j].chucvu<<endl;
-    file2<<p[j].age<<" "<<p[j].address<<endl;
-    file2<<p[j].sdt<<endl;
+     file2<<p[j];
         }
     }
   
