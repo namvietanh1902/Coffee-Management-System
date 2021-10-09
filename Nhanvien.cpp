@@ -76,24 +76,25 @@ void DeleteNV(Nhanvien *p){
     cout<<"Nhap ma cua nhan vien ban muon xoa: ";cin>>i;
 
     ifstream is("Nhanvien/Nhanvien.txt");
-    ofstream ofs;
-    ofs.open("Nhanvien/temp.txt", ofstream::out);
+    ofstream file2;
+    file2.open("Nhanvien/temp.txt", ofstream::out);
 
-    char c;
-    int line_no = 1;
-    while (is.get(c))
-    {
-        if (c == '\n')
-        line_no++;
-  
-        if (line_no <=4*(i-1)||line_no>4*i)
-            ofs << c;
+    getInfo(p);
+    for(int j=0;j<ma-1;j++){
+        if(j!=i-1){
+
+    file2<<p[j].name<<endl;
+    file2<<p[j].chucvu<<endl;
+    file2<<p[j].age<<" "<<p[j].address<<endl;
+    file2<<p[j].sdt<<endl;
+        }
     }
   
-    ofs.close();
+   file2.close();
     is.close();
     remove("Nhanvien/Nhanvien.txt");
-    rename("Nhanvien/temp.txt","Nhanvien/Nhanvien.txt");
+
+    rename("Nhanvien/temp.txt", "Nhanvien/Nhanvien.txt");
     getInfo(p);
 }
 
