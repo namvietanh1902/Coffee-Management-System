@@ -27,13 +27,21 @@ class Nhanvien{
         friend std::ostream& operator <<(std::ostream & ,const Nhanvien &);
         friend std::istream& operator >>(std::istream &,Nhanvien &);
         friend void getInfo(Nhanvien*);
+        void setmaNV(int maNV);
+        int getmaNV();
+        void setChucvu(string chucvu);
+        string getChucvu();
         void setName(string name);
         string getName();
-      
+        void setAge(int age);
+        int getAge();
+        void setAddress(string address);
+        string getAddress();
+        void setSDT(string sdt);
+        string getSDT();
         friend void display(Nhanvien*);
         friend void addNhanvien(Nhanvien *p);
         friend void DeleteNV(Nhanvien*p);
 };
-void stringCorrect(string &x);
 
 #endif
