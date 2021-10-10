@@ -2,12 +2,13 @@
 using namespace std;
 int main(){
     int n=1000;
-    Nhanvien *p=new Nhanvien[n];
-    getInfo(p);
-    display(p);
-    addNhanvien(p);
-    display(p);
-    DeleteNV(p);
-    display(p);
-    delete [] p;
+    Nhanvien *NV=new Nhanvien[n];
+    getInfo(NV);
+       DeleteNV(NV);
+    addNhanvien(NV);
+    
+    display(NV);
+
+    delete [] NV;
+    return 0;
 }
