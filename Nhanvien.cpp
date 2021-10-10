@@ -103,7 +103,7 @@ void display(Nhanvien* p){
     }
     cout<<endl;
 }
-void addNhanvien(Nhanvien* p){
+void Add(Nhanvien* p){
     Nhanvien x;
     ofstream file2;
     file2.open("Nhanvien/Nhanvien.txt",ios::app);
@@ -113,7 +113,7 @@ void addNhanvien(Nhanvien* p){
     getInfo(p);
     file2.close();
 }
-void DeleteNV(Nhanvien *p){
+void Delete(Nhanvien *p){
     int i;
     cout<<"Nhap ma cua nhan vien ban muon xoa: ";cin>>i;getchar();
 

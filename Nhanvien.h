@@ -40,8 +40,8 @@ class Nhanvien{
         void setSDT(string sdt);
         string getSDT();
         friend void display(Nhanvien*);
-        friend void addNhanvien(Nhanvien *p);
-        friend void DeleteNV(Nhanvien*p);
+        friend void Add(Nhanvien *p);
+        friend void Delete(Nhanvien*p);
 };
 
 #endif
