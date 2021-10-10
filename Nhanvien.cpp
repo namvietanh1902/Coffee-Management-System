@@ -85,8 +85,8 @@ void display(Nhanvien* p){
     cout<<setw(10)<<left<<"MaNV";
     cout<<setw(30)<<left<<"Ten";
     cout<<setw(20)<<left<<"Chuc vu";
-    cout<<setw(11)<<left<<"Tuoi";
-    cout<<setw(24)<<left<<"Dia chi";
+    cout<<setw(10)<<left<<"Tuoi";
+    cout<<setw(25)<<left<<"Dia chi";
     cout<<setw(15)<<left<<"So dien thoai"<<endl;
     for (int i=0;i<ma-1;i++){
     cout<<setw(10)<<left<<p[i].maNV;
