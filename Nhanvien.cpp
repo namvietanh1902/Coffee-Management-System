@@ -4,7 +4,11 @@
 #include<stdlib.h>
 #include "Nhanvien.h"
 using namespace std;
+void stringCorrect(string &x){
+    if(x[0]==' ') x.erase(0,1);
+}
 std::ostream& operator <<(std::ostream &out ,const Nhanvien &p){
+
     out<<p.name<<endl;
     out<<p.chucvu<<endl;
     out<<p.age<<" "<<p.address<<endl;
@@ -34,6 +38,7 @@ void getInfo(Nhanvien* p){
         getline(myFile,p[i].chucvu);
         myFile>>p[i].age;
         getline(myFile,p[i].address);
+        stringCorrect(p[i].address);
         getline(myFile,p[i].sdt);
         i++;
         continue;
@@ -69,7 +74,7 @@ void addNhanvien(Nhanvien* p){
 }
 void DeleteNV(Nhanvien *p){
     int i;
-    cout<<"Nhap ma cua nhan vien ban muon xoa: ";cin>>i;
+    cout<<"Nhap ma cua nhan vien ban muon xoa: ";cin>>i;getchar();
 
     ifstream is("Nhanvien/Nhanvien.txt");
     ofstream file2;

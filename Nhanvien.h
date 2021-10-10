@@ -34,5 +34,6 @@ class Nhanvien{
         friend void addNhanvien(Nhanvien *p);
         friend void DeleteNV(Nhanvien*p);
 };
+void stringCorrect(string &x);
 
 #endif
