@@ -7,7 +7,7 @@ using namespace std;
 std::ostream& operator <<(std::ostream &out ,const Nhanvien &p){
     out<<p.name<<endl;
     out<<p.chucvu<<endl;
-    out<<p.age<<" "<<p.address<<endl;
+    out<<p.age<<p.address<<endl;
     out<<p.sdt<<endl;
     return out;
 }
@@ -18,6 +18,42 @@ std::istream& operator >>(std::istream &in,Nhanvien &p){
     cout<<"Nhap dia chi: ";getline(cin,p.address);
     cout<<"Nhap so dien thoai:";getline(cin,p.sdt);
     return in;
+}
+void Nhanvien:: setmaNV(int maNV){ 
+    this->maNV=maNV;
+}
+int Nhanvien:: getmaNV(){
+    return maNV;
+}
+void Nhanvien:: setChucvu(string chucvu){
+    this->chucvu=chucvu;
+}
+string Nhanvien:: getChucvu(){
+    return chucvu;
+}
+void Nhanvien:: setName(string name){
+    this->name=name;
+}
+string Nhanvien:: getName(){
+    return name;
+}
+void Nhanvien:: setAge(int age){
+    this->age=age;
+}
+int Nhanvien:: getAge(){
+    return age;
+}
+void Nhanvien:: setAddress(string address){
+    this->address=address;
+}
+string Nhanvien:: getAddress(){
+    return address;
+}
+void Nhanvien:: setSDT(string sdt){
+    this->sdt=sdt;
+}
+string Nhanvien:: getSDT(){
+    return sdt;
 }
 void getInfo(Nhanvien* p){
     ifstream myFile;
