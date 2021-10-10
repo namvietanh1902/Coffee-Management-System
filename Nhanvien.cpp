@@ -11,7 +11,7 @@ std::ostream& operator <<(std::ostream &out ,const Nhanvien &p){
 
     out<<p.name<<endl;
     out<<p.chucvu<<endl;
-    out<<p.age<<p.address<<endl;
+    out<<p.age<<" "<<p.address<<endl;
     out<<p.sdt<<endl;
     return out;
 }
