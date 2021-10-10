@@ -10,6 +10,24 @@ std::istream& operator >>(std::istream &in,Item &p){
     cout<<"Nhap gia: ";in>>p.price;
     return in;
 }
+    void Item::setmaIteam(int maIteam){
+        this->maItem=maIteam;
+    }
+    int  Item::getmaIteam(){
+        return maItem;
+    }
+    void Item::setTenIteam(string tenIteam){
+        this->tenItem=tenIteam;
+    }
+    string Item::getTenIteam(){
+        return tenItem;
+    }
+    void Item::setPrice(int price){
+        this->price=price;
+    }
+    int  Item::getprice(){
+        return price;
+    }
 void getInfo(Item* p){
     ifstream myFile;
     myFile.open("Item/Item.txt");
