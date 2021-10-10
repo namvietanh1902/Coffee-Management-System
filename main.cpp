@@ -4,7 +4,8 @@ int main(){
     int n=1000;
     Nhanvien *NV=new Nhanvien[n];
     getInfo(NV);
-       DeleteNV(NV);
+    display(NV);
+    //DeleteNV(NV);
     addNhanvien(NV);
     
     display(NV);

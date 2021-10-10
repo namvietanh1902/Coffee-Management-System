@@ -1,6 +1,7 @@
 #include<iostream>
 #include<fstream>
 #include<string>
+#include<sstream>
 #include<stdlib.h>
 #include "Nhanvien.h"
 using namespace std;
@@ -11,7 +12,8 @@ std::ostream& operator <<(std::ostream &out ,const Nhanvien &p){
 
     out<<p.name<<endl;
     out<<p.chucvu<<endl;
-    out<<p.age<<" "<<p.address<<endl;
+    out<<p.age<<endl;
+    out<<p.address<<endl;
     out<<p.sdt<<endl;
     return out;
 }
@@ -69,10 +71,13 @@ void getInfo(Nhanvien* p){
     int i=0;
     ma=0;
     while (!myFile.eof()){
+        string line;
         p[i].maNV=++ma;
         getline(myFile,p[i].name);
         getline(myFile,p[i].chucvu);
-        myFile>>p[i].age;
+        getline(myFile,line);
+        stringstream geek(line);
+        geek>>p[i].age;
         getline(myFile,p[i].address);
         stringCorrect(p[i].address);
         getline(myFile,p[i].sdt);
@@ -85,8 +90,8 @@ void display(Nhanvien* p){
     cout<<setw(10)<<left<<"MaNV";
     cout<<setw(30)<<left<<"Ten";
     cout<<setw(20)<<left<<"Chuc vu";
-    cout<<setw(11)<<left<<"Tuoi";
-    cout<<setw(24)<<left<<"Dia chi";
+    cout<<setw(10)<<left<<"Tuoi";
+    cout<<setw(25)<<left<<"Dia chi";
     cout<<setw(15)<<left<<"So dien thoai"<<endl;
     for (int i=0;i<ma-1;i++){
     cout<<setw(10)<<left<<p[i].maNV;
