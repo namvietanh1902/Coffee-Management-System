@@ -17,10 +17,10 @@ class Item{
         Item(){}
         friend std::ostream& operator <<(std::ostream & ,const Item &);
         friend std::istream& operator >>(std::istream &,Item &);
-        void setmaIteam(int maIteam);
-        int getmaIteam();
-        void setTenIteam(string tenIteam);
-        string  getTenIteam();
+        void setmaItem(int maIteam);
+        int getmaItem();
+        void setTenItem(string tenItem);
+        string  getTenItem();
         void setPrice(int price);
         int getprice();
         friend void getInfo(Item*);

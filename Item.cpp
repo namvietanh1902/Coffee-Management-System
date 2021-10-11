@@ -10,16 +10,16 @@ std::istream& operator >>(std::istream &in,Item &p){
     cout<<"Nhap gia: ";in>>p.price;
     return in;
 }
-    void Item::setmaIteam(int maIteam){
+    void Item::setmaItem(int maIteam){
         this->maItem=maIteam;
     }
-    int  Item::getmaIteam(){
+    int  Item::getmaItem(){
         return maItem;
     }
-    void Item::setTenIteam(string tenIteam){
+    void Item::setTenItem(string tenIteam){
         this->tenItem=tenIteam;
     }
-    string Item::getTenIteam(){
+    string Item::getTenItem(){
         return tenItem;
     }
     void Item::setPrice(int price){
