@@ -1,8 +1,9 @@
-Ca phe sua
+MH001
+Ca phe den da
+15000
+MH002
+Capuccino
 25000
-Ca phe den 
-20000
-Cappuccino 
-30000
-Espresso
-25000
+MH006
+Tra sua
+23000

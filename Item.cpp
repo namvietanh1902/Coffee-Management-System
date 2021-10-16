@@ -1,19 +1,21 @@
 #include "Item.h"
 using namespace std;
 std::ostream& operator <<(std::ostream &out ,const Item &p){
+    out<<p.maItem<<endl;
     out<<p.tenItem<<endl;
     out<<p.price<<endl;
     return out;
 }
 std::istream& operator >>(std::istream &in,Item &p){
+    cout<<"Nhap ma mat hang: ";getline(cin,p.maItem);
     cout<<"Nhap ten mat hang: ";getline(cin,p.tenItem);
     cout<<"Nhap gia: ";in>>p.price;
     return in;
 }
-    void Item::setmaItem(int maIteam){
+    void Item::setmaItem(string maIteam){
         this->maItem=maIteam;
     }
-    int  Item::getmaItem(){
+    string  Item::getmaItem(){
         return maItem;
     }
     void Item::setTenItem(string tenIteam){
@@ -28,34 +30,34 @@ std::istream& operator >>(std::istream &in,Item &p){
     int  Item::getprice(){
         return price;
     }
-void getInfo(Item* p){
+int getInfo(Item* p){
     ifstream myFile;
     myFile.open("Item/Item.txt");
     if (!myFile.is_open()){
         cout<<"Khong mo duoc file";
-        return;
+        system("exit");
     }
-    int i=0;
-    maMH=0;
+    int total=0;
     while (!myFile.eof()){
         string line;
-        p[i].maItem=++maMH;
-        getline(myFile,p[i].tenItem);
+        getline(myFile,p[total].maItem);
+        getline(myFile,p[total].tenItem);
         getline(myFile,line);
         stringstream geek(line);
-        geek>>p[i].price;
-        i++;
+        geek>>p[total].price;
+        total++;
         continue;
     }
     myFile.close();
+    return total;
 }
 void display(Item* p){
-    getInfo(p);
+    int n=getInfo(p);
     cout<<setw(10)<<left<<"MaMH";
     cout<<setw(30)<<left<<"Ten mon";
     cout<<setw(20)<<left<<"Gia"<<endl;
   
-    for (int i=0;i<maMH-1;i++){
+    for (int i=0;i<n-1;i++){
     cout<<setw(10)<<left<<p[i].maItem;
     cout<<setw(30)<<left<<p[i].tenItem;
     cout<<setw(20)<<left<<p[i].price<<endl;
@@ -74,17 +76,21 @@ void Add(Item *p){
     file2.close();
 }
 void Delete(Item *p){
-    int i;
-    cout<<"Nhap ma cua mat hang ban muon xoa: ";cin>>i;getchar();
+    string x;
+    cout<<"Nhap ma cua mat hang ban muon xoa: ";cin>>x;
+    cout<<x;
 
     ifstream is("Item/Item.txt");
     ofstream file2;
     file2.open("temp.txt", ofstream::out);
 
-    getInfo(p);
-    for(int j=0;j<maMH-1;j++){
-        if(j!=i-1){
-
+    int n=getInfo(p);
+    int i;
+    for (i=0;i<n-1;i++){
+        if(x==p[i].maItem) break;
+    }
+    for(int j=0;j<n-1;j++){
+        if(j!=i){
      file2<<p[j];
         }
     }
@@ -94,5 +100,4 @@ void Delete(Item *p){
     remove("Item/Item.txt");
 
     rename("temp.txt", "Item/Item.txt");
-    getInfo(p);
 }

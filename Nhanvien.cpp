@@ -3,13 +3,14 @@
 #include<string>
 #include<sstream>
 #include<stdlib.h>
+
 #include "Nhanvien.h"
 using namespace std;
 void stringCorrect(string &x){
     if(x[0]==' ') x.erase(0,1);
 }
 std::ostream& operator <<(std::ostream &out ,const Nhanvien &p){
-
+    out<<p.maNV<<endl;
     out<<p.name<<endl;
     out<<p.chucvu<<endl;
     out<<p.age<<endl;
@@ -18,17 +19,18 @@ std::ostream& operator <<(std::ostream &out ,const Nhanvien &p){
     return out;
 }
 std::istream& operator >>(std::istream &in,Nhanvien &p){
+    cout<<"Nhap ma nhan vien: ";getline(cin,p.maNV);
     cout<<"Nhap ten: ";getline(cin,p.name);
     cout<<"Nhap tuoi: ";cin>>p.age;getchar();
     cout<<"Nhap chuc vu: ";getline(cin,p.chucvu);
     cout<<"Nhap dia chi: ";getline(cin,p.address);
-    cout<<"Nhap so dien thoai:";getline(cin,p.sdt);
+    cout<<"Nhap so dien thoai: ";getline(cin,p.sdt);
     return in;
 }
-void Nhanvien:: setmaNV(int maNV){ 
+void Nhanvien:: setmaNV(string maNV){ 
     this->maNV=maNV;
 }
-int Nhanvien:: getmaNV(){
+string Nhanvien:: getmaNV(){
     return maNV;
 }
 void Nhanvien:: setChucvu(string chucvu){
@@ -61,39 +63,40 @@ void Nhanvien:: setSDT(string sdt){
 string Nhanvien:: getSDT(){
     return sdt;
 }
-void getInfo(Nhanvien* p){
+int getInfo(Nhanvien* p){
     ifstream myFile;
     myFile.open("Nhanvien/Nhanvien.txt");
     if (!myFile.is_open()){
         cout<<"Khong mo duoc file";
-        return;
+        system("exit");
     }
-    int i=0;
-    ma=0;
+    int total=0;
+    
     while (!myFile.eof()){
         string line;
-        p[i].maNV=++ma;
-        getline(myFile,p[i].name);
-        getline(myFile,p[i].chucvu);
+        getline(myFile,p[total].maNV);
+        getline(myFile,p[total].name);
+        getline(myFile,p[total].chucvu);
         getline(myFile,line);
         stringstream geek(line);
-        geek>>p[i].age;
-        getline(myFile,p[i].address);
-        stringCorrect(p[i].address);
-        getline(myFile,p[i].sdt);
-        i++;
+        geek>>p[total].age;
+        getline(myFile,p[total].address);
+        stringCorrect(p[total].address);
+        getline(myFile,p[total].sdt);
+        total++;
         continue;
     }
+    return total;
 }
 void display(Nhanvien* p){
-    getInfo(p);
+    int total=getInfo(p);
     cout<<setw(10)<<left<<"MaNV";
     cout<<setw(30)<<left<<"Ten";
     cout<<setw(20)<<left<<"Chuc vu";
     cout<<setw(10)<<left<<"Tuoi";
     cout<<setw(25)<<left<<"Dia chi";
     cout<<setw(15)<<left<<"So dien thoai"<<endl;
-    for (int i=0;i<ma-1;i++){
+    for (int i=0;i<total-1;i++){
     cout<<setw(10)<<left<<p[i].maNV;
     cout<<setw(30)<<left<<p[i].name;
     cout<<setw(20)<<left<<p[i].chucvu;
@@ -114,26 +117,26 @@ void Add(Nhanvien* p){
     file2.close();
 }
 void Delete(Nhanvien *p){
-    int i;
-    cout<<"Nhap ma cua nhan vien ban muon xoa: ";cin>>i;getchar();
-
+    string del;
+    cout<<"Nhap ma cua nhan vien ban muon xoa: ";cin>>del;
     ifstream is("Nhanvien/Nhanvien.txt");
     ofstream file2;
     file2.open("Nhanvien/temp.txt", ofstream::out);
-
-    getInfo(p);
-    for(int j=0;j<ma-1;j++){
-        if(j!=i-1){
-
+    int n=getInfo(p);
+    int i;
+    for ( i=0;i<n-1;i++){
+        if (del==p[i].maNV) {
+            break;
+        }
+    }
+    for(int j=0;j<n-1;j++){
+        if(j!=i){
      file2<<p[j];
         }
     }
-  
     file2.close();
     is.close();
     remove("Nhanvien/Nhanvien.txt");
-
     rename("Nhanvien/temp.txt", "Nhanvien/Nhanvien.txt");
-    getInfo(p);
 }
 

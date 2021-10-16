@@ -1,16 +1,18 @@
-Nguyen Van Thinh
+NV001
+Nguyen Tu Quang
 Pha che
-21
+36
 27 Chu Van An
 0837265234
-Truong Quang Khang
-Phuc vu
-18
-193 Nguyen Luong Bang
-0921459874
-Nguyen Nhat Hung
-lao cong
-21
-12 nguyen luong bang
-0942302
-
+NV002
+Nguyen Pham Nam Anh
+CEO
+20
+15
+0833381239
+NV006
+Nguyen Van Thinh
+CEO 2
+19
+98 Ngo Si Lien
+0967512314NV007
