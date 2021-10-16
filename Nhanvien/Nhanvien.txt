@@ -1,20 +1,18 @@
+NV001
 Nguyen Tu Quang
 Pha che
 36
 27 Chu Van An
 0837265234
-Nguyen Nhat Hung
-CEO
-25
-25 Nguyen Du
-0725814814
+NV002
 Nguyen Pham Nam Anh
-Chu quan
+CEO
 20
-19/18 Tran Hung Dao
-0935170135
-121
-
-21332132
-23123321213
-12332321123
+15
+0833381239
+NV006
+Nguyen Van Thinh
+CEO 2
+19
+98 Ngo Si Lien
+0967512314

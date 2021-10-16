@@ -12,7 +12,7 @@ static int ma=0;
 class Nhanvien{
 
     private:
-      int maNV;
+        string maNV;
         string chucvu;
         string name;
         int age;
@@ -26,9 +26,9 @@ class Nhanvien{
         }
         friend std::ostream& operator <<(std::ostream & ,const Nhanvien &);
         friend std::istream& operator >>(std::istream &,Nhanvien &);
-        friend void getInfo(Nhanvien*);
-        void setmaNV(int maNV);
-        int getmaNV();
+        friend int getInfo(Nhanvien*);
+        void setmaNV(string maNV);
+        string getmaNV();
         void setChucvu(string chucvu);
         string getChucvu();
         void setName(string name);
