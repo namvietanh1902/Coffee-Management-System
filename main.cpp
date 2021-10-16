@@ -1,16 +1,13 @@
 #include "Nhanvien.h"
 #include "Item.h"
+#include "Hoadon.h"
 using namespace std;
 int main(){
-    int n=1000;
-    Item *Menu=new Item[n];
-    Nhanvien *NV=new Nhanvien[n];
- 
-    display(Menu);
-  
-    Delete(Menu);
-    display(Menu);
-    delete [] NV;
+    Item *Menu=new Item[100];
+    Add(Menu);
+    Hoadon p;
+    Cashier(p);
     delete [] Menu;
     return 0;
+    
 }
