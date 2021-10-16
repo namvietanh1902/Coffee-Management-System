@@ -7,7 +7,7 @@
 #include<conio.h>
 #include<iomanip>
 using namespace std;
-static int ma=0;
+
 
 class Nhanvien{
 
