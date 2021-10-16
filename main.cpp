@@ -6,12 +6,11 @@ int main(){
     Item *Menu=new Item[n];
     Nhanvien *NV=new Nhanvien[n];
     getInfo(NV);
-    getInfo(Menu);
-    display(Menu);
     display(NV);
-    Delete(Menu);
+    Delete(NV);
+    Add(NV);
     //display(NV);
-    display(Menu);
+    display(NV);
     delete [] NV;
     delete [] Menu;
     return 0;

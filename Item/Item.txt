@@ -1,4 +1,8 @@
 Ca phe sua
-12000
+25000
 Ca phe den 
-10000
+20000
+Cappuccino 
+30000
+Espresso
+25000
