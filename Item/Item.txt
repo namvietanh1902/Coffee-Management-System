@@ -4,6 +4,7 @@ Ca phe den da
 MH002
 Capuccino
 25000
-MH006
-Tra sua
-23000
+MH003
+Ca cao
+14000
+

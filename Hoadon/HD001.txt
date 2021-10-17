@@ -1,0 +1,5 @@
+Nhan vien thu ngan: NV001
+Ten mon                       So luong  Thanh tien
+Ca cao                        2         28000     
+Ca cao                        1         14000     
+Tong gia tien: 42000

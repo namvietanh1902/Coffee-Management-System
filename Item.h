@@ -6,6 +6,7 @@
 #include<sstream>
 #include<stdlib.h>
 #include<iomanip>
+#include "Hoadon.h"
 using namespace std;
 
 class Item{
@@ -27,5 +28,6 @@ class Item{
         friend void display(Item*);
         friend void Add(Item*);
         friend void Delete(Item*);
+        
 };
 #endif
