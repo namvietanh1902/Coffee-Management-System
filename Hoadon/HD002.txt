@@ -1,5 +1,5 @@
-Nhan vien thu ngan: NV002
+Nhan vien thu ngan: NV005
 Ten mon                       So luong  Thanh tien
-Capuccino                     2         50000     
+Ca cao                        2         28000     
 Ca phe den da                 4         60000     
-Tong gia tien: 110000
+Tong gia tien: 88000
