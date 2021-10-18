@@ -1,9 +1,3 @@
-NV001
-Nguyen Tu Quang
-Pha che
-36
-27 Chu Van An
-0837265234
 NV002
 Nguyen Pham Nam Anh
 CEO
@@ -15,4 +9,4 @@ Nguyen Van Thinh
 CEO 2
 19
 98 Ngo Si Lien
-0967512314NV007
+0967512314

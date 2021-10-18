@@ -33,7 +33,10 @@ ostream& operator<<(ostream& out,const Hoadon &p){
     return out;
 }
 void Cashier(Hoadon &p){
+    Nhanvien *NV=new Nhanvien[MAX];
+    display(NV);
     cout<<"Nhap ma nhan vien: ";cin>>p.maNV;
+    system("cls");
     cout<<"Nhap ma hoa don: ";cin>>p.maHD;
     ifstream in;
     ofstream file;
@@ -82,7 +85,6 @@ void Cashier(Hoadon &p){
     ifstream in2;
     system("cls");
     read("Hoadon/"+p.maHD+".txt");
-
 }
 void display(Hoadon &p){
     ifstream in;

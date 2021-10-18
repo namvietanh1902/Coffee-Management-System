@@ -1,0 +1,5 @@
+Nhan vien thu ngan: NV002
+Ten mon                       So luong  Thanh tien
+Ca cao                        4         56000     
+Capuccino                     2         50000     
+Tong gia tien: 106000
