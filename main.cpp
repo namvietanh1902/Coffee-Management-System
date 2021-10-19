@@ -134,8 +134,8 @@ void menu(){
                 {
                     QuanlyItem:
                     system("cls");
-                    Item *x=new Item[N];
-                    	cout<<"\n\n\t\t\t\t\t\t\t   -Quan Ly Thuc Don-";
+                    Item *x=new Item[N];TextColor(14);
+                    	cout<<"\n\n\t\t\t\t\t\t\t   -Quan Ly Thuc Don-";TextColor(7);
                         cout<<"\n\t\t\t\t\t*********************************************************";
                         cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
                         cout<<"\n\t\t\t\t\t*"<<"\t             1.Show Thuc Don                    *";
