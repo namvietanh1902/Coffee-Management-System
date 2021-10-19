@@ -1,9 +1,24 @@
 MH001
-Ca phe den da
-15000
+Sg Cafe
+18000
 MH002
-Capuccino
-25000
+Sg Cafe Milk
+22000
 MH003
-Ca cao
-14000
+Cappuccino
+25000
+MH004
+Cafe Americano
+24000
+MH005
+Espresso
+22000
+MH006
+Cafe Latte
+28000
+MH007
+Cafe Mocha
+30000
+MH008
+Macchiato
+24000

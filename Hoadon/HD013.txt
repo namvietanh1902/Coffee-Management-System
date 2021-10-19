@@ -1,0 +1,4 @@
+Nhan vien thu ngan: NV006
+Ten mon                       So luong  Thanh tien
+Macchiato                     6         144000    
+Tong gia tien: 144000

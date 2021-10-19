@@ -2,18 +2,31 @@
 #include "Item.h"
 #include"Hoadon.h"
 #include<iostream>
+#include<iomanip>
+#include<windows.h>
 #define N 100
 using namespace std;
+void InLine(int n){
+    for (int i = 0; i < n; i++) 
+        cout<<"=";
+}
 void menu(){
     Menu:
     system("cls");
-    cout<<"MENU"<<endl;
-    cout<<"1.Cashier"<<endl;
-    cout<<"2.Manager"<<endl;
+    cout<<"\n\n\t\t\t\t\t\t\t\t-MENU-";
+    cout<<"\n\t\t\t\t\t\t========================================";
+    cout<<"\n\t\t\t\t\t\t||"<<"\t                              ||";
+    cout<<"\n\t\t\t\t\t\t||"<<"\t       1.Cashier              ||";
+    cout<<"\n\t\t\t\t\t\t||"<<"\t                              ||";
+    cout<<"\n\t\t\t\t\t\t||"<<"\t       2.Manager              ||";
+	cout<<"\n\t\t\t\t\t\t||"<<"\t                              ||";
+	cout<<"\n\t\t\t\t\t\t||"<<"\t       3.Exit                 ||";
+	cout<<"\n\t\t\t\t\t\t||"<<"\t                              ||";
+	cout<<"\n\t\t\t\t\t\t========================================";
     int a;
-    cout<<"Nhap lua chon :";cin>>a;
-    if(a>2&&a<0){
-         cout<<"Nhap lua chon :";cin>>a;
+    cout<<"\n\n\t\t\t\t\t\tNhap lua chon :";cin>>a;
+    while(a<0||a>3){
+        cout<<"\n\n\t\t\t\t\t\tNhap lua chon :";cin>>a;   
     }
     switch (a)
     {
@@ -30,15 +43,26 @@ void menu(){
         {
             Manager:
             system("cls");
-            cout<<"1.Quan Ly Nhan Vien"<<endl;
-            cout<<"2.Quan Ly Thuc Don"<<endl;
-            cout<<"3.Quan Ly Hoa Don"<<endl;
-            cout<<"4.Doi pass"<<endl;
-            cout<<"4.Quay lai"<<endl;
+            cout<<"\n\n\t\t\t\t\t\t\t -Manager-";
+            cout<<"\n\t\t\t\t+------------------------------------------------------------+";
+            cout<<"\n\t\t\t\t|"<<"\t                                                     |";
+            cout<<"\n\t\t\t\t|"<<"\t              1.Quan Ly Nhan Vien                    |";
+            cout<<"\n\t\t\t\t|"<<"\t                                                     |";
+            cout<<"\n\t\t\t\t|"<<"\t              2.Quan Ly Thuc Don                     |";
+	        cout<<"\n\t\t\t\t|"<<"\t                                                     |";
+            cout<<"\n\t\t\t\t|"<<"\t              3.Quan Ly Hoa Don                      |";
+            cout<<"\n\t\t\t\t|"<<"\t                                                     |";
+	        cout<<"\n\t\t\t\t|"<<"\t              4.Doi Pass                             |";
+	        cout<<"\n\t\t\t\t|"<<"\t                                                     |";
+	        cout<<"\n\t\t\t\t|"<<"\t              5.Quay Lai                             |";
+	        cout<<"\n\t\t\t\t|"<<"\t                                                     |";
+	        cout<<"\n\t\t\t\t|"<<"\t              6.Exit                                 |";
+	        cout<<"\n\t\t\t\t|"<<"\t                                                     |";
+	        cout<<"\n\t\t\t\t+------------------------------------------------------------+";
             int b;
-            cout<<"Nhap lua chon :";cin>>b;
-            if(b>3&&b<0){
-            cout<<"Nhap lua chon :";cin>>b;
+            cout<<"\n\n\t\t\t\tNhap lua chon :";cin>>b;
+            while(b<0||b>6){
+            cout<<"\n\n\t\t\t\t\tNhap lua chon :";cin>>b;
             }
             switch (b)
             {
@@ -47,14 +71,24 @@ void menu(){
                     Quanlynhanvien:
                     system("cls");
                     Nhanvien *NV=new Nhanvien[N];
-                    cout<<"1.Show Danh Sanh Nhan Vien"<<endl;
-                    cout<<"2.Them Nhan Vien"<<endl;
-                    cout<<"3.Xoa Nhan Vien"<<endl;
-                    cout<<"4.Quay lai"<<endl;
+                    cout<<"\n\n\t\t\t\t\t\t\t   -Quan Ly Nhan Vien-";
+                    cout<<"\n\t\t\t\t\t*********************************************************";
+                    cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
+                    cout<<"\n\t\t\t\t\t*"<<"\t         1.Show Danh Sanh Nhan Vien             *";
+                    cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
+                    cout<<"\n\t\t\t\t\t*"<<"\t         2.Them Nhan Vien                       *";
+	                cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
+	                cout<<"\n\t\t\t\t\t*"<<"\t         3.Xoa Nhan Vien                        *";
+	                cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
+	                cout<<"\n\t\t\t\t\t*"<<"\t         4.Quay Lai                             *";
+	                cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
+	                cout<<"\n\t\t\t\t\t*"<<"\t         5.Exit                                 *";
+	                cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
+	                cout<<"\n\t\t\t\t\t*********************************************************";
                     int c;
-                    cout<<"Nhap lua chon :";cin>>c;getchar();
-                    if(c>3&&c<0){
-                    cout<<"Nhap lua chon :";cin>>c;getchar();
+                    cout<<"\n\n\t\t\t\t\tNhap lua chon :";cin>>c;getchar();
+                    while(c<0||c>5){
+                    cout<<"\n\n\t\t\t\t\tNhap lua chon :";cin>>c;getchar();
                     }
                     switch (c)
                     {
@@ -85,6 +119,8 @@ void menu(){
                         case 4:
                         goto Manager;
                         break;
+                        case 5:
+                        system("exit");
                     }
                 }
                 case 2:
@@ -92,16 +128,26 @@ void menu(){
                     QuanlyItem:
                     system("cls");
                     Item *x=new Item[N];
-                    cout<<"1.Show Danh Sanh Item"<<endl;
-                    cout<<"2.Them Item"<<endl;
-                    cout<<"3.Xoa Item"<<endl;
-                    cout<<"4.Quay lai"<<endl;
-                    int c;
-                    cout<<"Nhap lua chon :";cin>>c; getchar();
-                    if(c>3&&c<0){
-                    cout<<"Nhap lua chon :";cin>>c; getchar();
+                    	cout<<"\n\n\t\t\t\t\t\t\t   -Quan Ly Thuc Don-";
+                        cout<<"\n\t\t\t\t\t*********************************************************";
+                        cout<<"\n\t\t\t\t\t*"<<"\t                                                 *";
+                        cout<<"\n\t\t\t\t\t*"<<"\t             1.Show Thuc Don                     *";
+                        cout<<"\n\t\t\t\t\t*"<<"\t                                                 *";
+                        cout<<"\n\t\t\t\t\t*"<<"\t             2.Them Item                         *";
+	                    cout<<"\n\t\t\t\t\t*"<<"\t                                                 *";
+	                    cout<<"\n\t\t\t\t\t*"<<"\t             3.Xoa Item                          *";
+	                    cout<<"\n\t\t\t\t\t*"<<"\t                                                 *";
+	                    cout<<"\n\t\t\t\t\t*"<<"\t             4.Quay Lai                          *";
+	                    cout<<"\n\t\t\t\t\t*"<<"\t                                                 *";
+	                    cout<<"\n\t\t\t\t\t*"<<"\t             5.Exit                              *";
+	                    cout<<"\n\t\t\t\t\t*"<<"\t                                                 *";
+	                    cout<<"\n\t\t\t\t\t*********************************************************";
+                    int d;
+                    cout<<"\n\n\t\t\t\t\tNhap lua chon :";cin>>d;getchar();
+                    while(d<0||d>4){
+                    cout<<"\n\n\t\t\t\t\tNhap lua chon :";cin>>d;getchar();
                     }
-                    switch (c)
+                    switch (d)
                     {
                         case 1:
                         {
@@ -130,28 +176,39 @@ void menu(){
                         case 4:
                         goto Manager;
                         break;
+                        case 5:
+                        system("exit");
                     }
-                }
+                    }
                 case 3:
-                {
+                { 
                     system("cls");
+                    cout<<endl;InLine(30);
+                    cout<<"Danh Sach Hoa Don";
+                    InLine(30); cout<<endl;
                     Hoadon a;
                     display(a);
                     system("pause");
                     goto Manager;
                     break;
                 }
-                case 4:
+                case 5:
                     goto Menu;
                     break;
+                case 6:
+                   system("exit");
             }
         }
+        case 3:
+        system("exit");
     } 
 }
 
+
 int main(){
-    
-  menu();
+
+    InLine(200);
+    menu();
   
     return 0;
 }

@@ -3,11 +3,11 @@
 #include<string>
 #include<sstream>
 #include<stdlib.h>
-
 #include "Nhanvien.h"
 using namespace std;
-void stringCorrect(string &x){
-    if(x[0]==' ') x.erase(0,1);
+void InLine1(int n){
+    for (int i = 0; i < n; i++) 
+        cout<<"=";
 }
 std::ostream& operator <<(std::ostream &out ,const Nhanvien &p){
     out<<p.maNV<<endl;
@@ -81,7 +81,6 @@ int getInfo(Nhanvien* p){
         stringstream geek(line);
         geek>>p[total].age;
         getline(myFile,p[total].address);
-        stringCorrect(p[total].address);
         getline(myFile,p[total].sdt);
         total++;
         continue;
@@ -89,7 +88,10 @@ int getInfo(Nhanvien* p){
     return total;
 }
 void display(Nhanvien* p){
-    int total=getInfo(p);
+    int total=getInfo(p);cout<<endl;
+    InLine1(45);
+    cout<<"Danh Sach Nhan Vien";
+    InLine1(45);cout<<endl;
     cout<<setw(10)<<left<<"MaNV";
     cout<<setw(30)<<left<<"Ten";
     cout<<setw(20)<<left<<"Chuc vu";
@@ -107,6 +109,9 @@ void display(Nhanvien* p){
     cout<<endl;
 }
 void Add(Nhanvien* p){
+    cout<<endl;InLine1(45);
+    cout<<"Them  Nhan Vien";
+    InLine1(45);cout<<endl;
     Nhanvien x;
     ofstream file2;
     file2.open("Nhanvien/Nhanvien.txt",ios::app);
@@ -117,6 +122,9 @@ void Add(Nhanvien* p){
     file2.close();
 }
 void Delete(Nhanvien *p){
+    cout<<endl;InLine1(45);
+    cout<<"Xoa Nhan Vien";
+    InLine1(45);cout<<endl;
     string del;
     cout<<"Nhap ma cua nhan vien ban muon xoa: ";cin>>del;
     ifstream is("Nhanvien/Nhanvien.txt");

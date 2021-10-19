@@ -1,0 +1,4 @@
+Nhan vien thu ngan: NV004
+Ten mon                       So luong  Thanh tien
+Cafe Mocha                    6         180000    
+Tong gia tien: 180000

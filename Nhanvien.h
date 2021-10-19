@@ -7,10 +7,7 @@
 #include<conio.h>
 #include<iomanip>
 using namespace std;
-
-
 class Nhanvien{
-
     private:
         string maNV;
         string chucvu;
@@ -19,10 +16,7 @@ class Nhanvien{
         string address;
         string sdt;
     public:
-        
         Nhanvien(){
-       
-           
         }
         friend std::ostream& operator <<(std::ostream & ,const Nhanvien &);
         friend std::istream& operator >>(std::istream &,Nhanvien &);

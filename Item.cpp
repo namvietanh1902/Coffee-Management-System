@@ -1,5 +1,10 @@
 #include "Item.h"
+#include<iostream>
 using namespace std;
+void InLine2(int n){
+    for (int i = 0; i < n; i++) 
+        cout<<"=";
+}
 std::ostream& operator <<(std::ostream &out ,const Item &p){
     out<<p.maItem<<endl;
     out<<p.tenItem<<endl;
@@ -52,11 +57,13 @@ int getInfo(Item* p){
     return total;
 }
 void display(Item* p){
-    int n=getInfo(p);
+    int n=getInfo(p);cout<<endl;
+    InLine2(19);
+    cout<<"Thuc Don";
+    InLine2(19); cout<<endl;
     cout<<setw(10)<<left<<"MaMH";
     cout<<setw(30)<<left<<"Ten mon";
     cout<<setw(20)<<left<<"Gia"<<endl;
-  
     for (int i=0;i<n-1;i++){
     cout<<setw(10)<<left<<p[i].maItem;
     cout<<setw(30)<<left<<p[i].tenItem;
@@ -66,6 +73,9 @@ void display(Item* p){
     cout<<endl;
 }
 void Add(Item *p){
+    cout<<endl;InLine2(19);
+    cout<<"Them Item";
+    InLine2(19); cout<<endl;
     Item x;
     ofstream file2;
     file2.open("Item/Item.txt",ios::app);
@@ -76,6 +86,9 @@ void Add(Item *p){
     file2.close();
 }
 void Delete(Item *p){
+    cout<<endl;InLine2(19);
+    cout<<"Xoa Item";
+    InLine2(19); cout<<endl;
     string x;
     cout<<"Nhap ma cua mat hang ban muon xoa: ";cin>>x;
     cout<<x;
