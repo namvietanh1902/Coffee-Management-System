@@ -6,14 +6,21 @@
 #include<windows.h>
 #define N 100
 using namespace std;
+void TextColor(int x)
+{
+	HANDLE mau;
+	mau = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(mau,x);
+}
+
 void InLine(int n){
     for (int i = 0; i < n; i++) 
         cout<<"=";
 }
 void menu(){
     Menu:
-    system("cls");
-    cout<<"\n\n\t\t\t\t\t\t\t\t-MENU-";
+    system("cls");TextColor(14);
+    cout<<"\n\n\t\t\t\t\t\t\t\t-MENU-";TextColor(7);
     cout<<"\n\t\t\t\t\t\t========================================";
     cout<<"\n\t\t\t\t\t\t||"<<"\t                              ||";
     cout<<"\n\t\t\t\t\t\t||"<<"\t       1.Cashier              ||";
@@ -42,8 +49,8 @@ void menu(){
         case 2:
         {
             Manager:
-            system("cls");
-            cout<<"\n\n\t\t\t\t\t\t\t -Manager-";
+            system("cls");TextColor(14);
+            cout<<"\n\n\t\t\t\t\t\t\t -Manager-";TextColor(7);
             cout<<"\n\t\t\t\t+------------------------------------------------------------+";
             cout<<"\n\t\t\t\t|"<<"\t                                                     |";
             cout<<"\n\t\t\t\t|"<<"\t              1.Quan Ly Nhan Vien                    |";
@@ -70,8 +77,8 @@ void menu(){
                 {
                     Quanlynhanvien:
                     system("cls");
-                    Nhanvien *NV=new Nhanvien[N];
-                    cout<<"\n\n\t\t\t\t\t\t\t   -Quan Ly Nhan Vien-";
+                    Nhanvien *NV=new Nhanvien[N];TextColor(14);
+                    cout<<"\n\n\t\t\t\t\t\t\t   -Quan Ly Nhan Vien-";TextColor(7);
                     cout<<"\n\t\t\t\t\t*********************************************************";
                     cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
                     cout<<"\n\t\t\t\t\t*"<<"\t         1.Show Danh Sanh Nhan Vien             *";
@@ -130,17 +137,17 @@ void menu(){
                     Item *x=new Item[N];
                     	cout<<"\n\n\t\t\t\t\t\t\t   -Quan Ly Thuc Don-";
                         cout<<"\n\t\t\t\t\t*********************************************************";
-                        cout<<"\n\t\t\t\t\t*"<<"\t                                                 *";
-                        cout<<"\n\t\t\t\t\t*"<<"\t             1.Show Thuc Don                     *";
-                        cout<<"\n\t\t\t\t\t*"<<"\t                                                 *";
-                        cout<<"\n\t\t\t\t\t*"<<"\t             2.Them Item                         *";
-	                    cout<<"\n\t\t\t\t\t*"<<"\t                                                 *";
-	                    cout<<"\n\t\t\t\t\t*"<<"\t             3.Xoa Item                          *";
-	                    cout<<"\n\t\t\t\t\t*"<<"\t                                                 *";
-	                    cout<<"\n\t\t\t\t\t*"<<"\t             4.Quay Lai                          *";
-	                    cout<<"\n\t\t\t\t\t*"<<"\t                                                 *";
-	                    cout<<"\n\t\t\t\t\t*"<<"\t             5.Exit                              *";
-	                    cout<<"\n\t\t\t\t\t*"<<"\t                                                 *";
+                        cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
+                        cout<<"\n\t\t\t\t\t*"<<"\t             1.Show Thuc Don                    *";
+                        cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
+                        cout<<"\n\t\t\t\t\t*"<<"\t             2.Them Item                        *";
+	                    cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
+	                    cout<<"\n\t\t\t\t\t*"<<"\t             3.Xoa Item                         *";
+	                    cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
+	                    cout<<"\n\t\t\t\t\t*"<<"\t             4.Quay Lai                         *";
+	                    cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
+	                    cout<<"\n\t\t\t\t\t*"<<"\t             5.Exit                             *";
+	                    cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
 	                    cout<<"\n\t\t\t\t\t*********************************************************";
                     int d;
                     cout<<"\n\n\t\t\t\t\tNhap lua chon :";cin>>d;getchar();
@@ -183,8 +190,8 @@ void menu(){
                 case 3:
                 { 
                     system("cls");
-                    cout<<endl;InLine(30);
-                    cout<<"Danh Sach Hoa Don";
+                    cout<<endl;InLine(30);TextColor(11);
+                    cout<<"Danh Sach Hoa Don";TextColor(7);
                     InLine(30); cout<<endl;
                     Hoadon a;
                     display(a);

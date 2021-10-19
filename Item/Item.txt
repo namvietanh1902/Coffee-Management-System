@@ -8,16 +8,16 @@ MH003
 Cappuccino
 25000
 MH004
-Cafe Americano
+Americano
 24000
 MH005
 Espresso
 22000
 MH006
-Cafe Latte
+Latte
 28000
 MH007
-Cafe Mocha
+Mocha
 30000
 MH008
 Macchiato

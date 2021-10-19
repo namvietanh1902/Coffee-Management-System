@@ -1,4 +1,0 @@
-Nhan vien thu ngan: NV002
-Ten mon                       So luong  Thanh tien
-Ca phe den da                 2         30000     
-Tong gia tien: 30000

@@ -3,11 +3,18 @@
 #include<string>
 #include<sstream>
 #include<stdlib.h>
+#include<windows.h>
 #include "Nhanvien.h"
 using namespace std;
 void InLine1(int n){
     for (int i = 0; i < n; i++) 
         cout<<"=";
+}
+void TextColor1(int x)
+{
+	HANDLE mau;
+	mau = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(mau,x);
 }
 std::ostream& operator <<(std::ostream &out ,const Nhanvien &p){
     out<<p.maNV<<endl;
@@ -89,8 +96,8 @@ int getInfo(Nhanvien* p){
 }
 void display(Nhanvien* p){
     int total=getInfo(p);cout<<endl;
-    InLine1(45);
-    cout<<"Danh Sach Nhan Vien";
+    InLine1(45);TextColor1(11);
+    cout<<"Danh Sach Nhan Vien";TextColor1(7);
     InLine1(45);cout<<endl;
     cout<<setw(10)<<left<<"MaNV";
     cout<<setw(30)<<left<<"Ten";
@@ -109,8 +116,8 @@ void display(Nhanvien* p){
     cout<<endl;
 }
 void Add(Nhanvien* p){
-    cout<<endl;InLine1(45);
-    cout<<"Them  Nhan Vien";
+    cout<<endl;InLine1(45);TextColor1(11);
+    cout<<"Them  Nhan Vien";TextColor1(7);
     InLine1(45);cout<<endl;
     Nhanvien x;
     ofstream file2;
@@ -122,8 +129,8 @@ void Add(Nhanvien* p){
     file2.close();
 }
 void Delete(Nhanvien *p){
-    cout<<endl;InLine1(45);
-    cout<<"Xoa Nhan Vien";
+    cout<<endl;InLine1(45);TextColor1(11);
+    cout<<"Xoa Nhan Vien";TextColor1(7);
     InLine1(45);cout<<endl;
     string del;
     cout<<"Nhap ma cua nhan vien ban muon xoa: ";cin>>del;

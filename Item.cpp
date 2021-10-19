@@ -1,9 +1,16 @@
 #include "Item.h"
 #include<iostream>
+#include<windows.h>
 using namespace std;
 void InLine2(int n){
     for (int i = 0; i < n; i++) 
         cout<<"=";
+}
+void TextColor2(int x)
+{
+	HANDLE mau;
+	mau = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(mau,x);
 }
 std::ostream& operator <<(std::ostream &out ,const Item &p){
     out<<p.maItem<<endl;
@@ -58,8 +65,8 @@ int getInfo(Item* p){
 }
 void display(Item* p){
     int n=getInfo(p);cout<<endl;
-    InLine2(19);
-    cout<<"Thuc Don";
+    InLine2(19);TextColor2(11);
+    cout<<"Thuc Don";TextColor2(7);
     InLine2(19); cout<<endl;
     cout<<setw(10)<<left<<"MaMH";
     cout<<setw(30)<<left<<"Ten mon";
@@ -68,13 +75,12 @@ void display(Item* p){
     cout<<setw(10)<<left<<p[i].maItem;
     cout<<setw(30)<<left<<p[i].tenItem;
     cout<<setw(20)<<left<<p[i].price<<endl;
-   
     }
     cout<<endl;
 }
 void Add(Item *p){
-    cout<<endl;InLine2(19);
-    cout<<"Them Item";
+    cout<<endl;InLine2(19);TextColor2(11);
+    cout<<"Them Item";TextColor2(7);
     InLine2(19); cout<<endl;
     Item x;
     ofstream file2;
@@ -86,8 +92,8 @@ void Add(Item *p){
     file2.close();
 }
 void Delete(Item *p){
-    cout<<endl;InLine2(19);
-    cout<<"Xoa Item";
+    cout<<endl;InLine2(19);TextColor2(11);
+    cout<<"Xoa Item";TextColor2(7);
     InLine2(19); cout<<endl;
     string x;
     cout<<"Nhap ma cua mat hang ban muon xoa: ";cin>>x;
