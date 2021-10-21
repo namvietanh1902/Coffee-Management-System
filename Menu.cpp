@@ -144,8 +144,3 @@ void resetPass(){
 
 
 }
-int main(){
-   
-    Manager();
-    resetPass();
-}
