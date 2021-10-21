@@ -3,6 +3,7 @@
 #include"Hoadon.h"
 #include<iostream>
 #include<iomanip>
+#include "Menu.h"
 #include<windows.h>
 #define N 100
 using namespace std;
@@ -47,7 +48,10 @@ void menu(){
             break;
         }
         case 2:
-        {
+
+        {   system("cls");
+            Manager();
+            system("pause");
             Manager:
             system("cls");TextColor(14);
             cout<<"\n\n\t\t\t\t\t\t\t -Manager-";TextColor(7);
@@ -199,6 +203,13 @@ void menu(){
                     goto Manager;
                     break;
                 }
+                case 4:{
+                    system("cls");
+                    resetPass();
+                    goto Menu;
+                    break;
+                }
+
                 case 5:
                     goto Menu;
                     break;
