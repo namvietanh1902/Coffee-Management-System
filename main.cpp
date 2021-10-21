@@ -3,6 +3,7 @@
 #include"Hoadon.h"
 #include<iostream>
 #include<iomanip>
+#include <conio.h>
 #include<windows.h>
 #define N 100
 using namespace std;
@@ -213,9 +214,6 @@ void menu(){
 
 
 int main(){
-
-    InLine(200);
     menu();
-  
     return 0;
 }
