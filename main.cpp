@@ -2,17 +2,16 @@
 #include "Item.h"
 #include"Hoadon.h"
 #include<iostream>
+#include<Windows.h>
 #include<iomanip>
 #include "Menu.h"
-#include<windows.h>
 #define N 100
 using namespace std;
-void TextColor(int x)
-{
-	HANDLE mau;
-	mau = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(mau,x);
+void TextColor(int x){
+    HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute( color , x );
 }
+
 
 void InLine(int n){
     for (int i = 0; i < n; i++) 
@@ -206,7 +205,7 @@ void menu(){
                 case 4:{
                     system("cls");
                     resetPass();
-                    goto Menu;
+                    goto Manager;
                     break;
                 }
 
