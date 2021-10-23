@@ -20,6 +20,7 @@ Hoadon::~Hoadon(){
     delete [] soluong;
 }
 ostream& operator<<(ostream& out,const Hoadon &p){
+    out<<"Ngay thu ngan: "<<p.day<<"/"<<p.month<<"/"<<p.year;
     out<<"Nhan vien thu ngan: "<<p.maNV<<endl;
     out<<setw(30)<<left<<"Ten mon";
     out<<setw(10)<<left<<"So luong";
@@ -35,8 +36,11 @@ ostream& operator<<(ostream& out,const Hoadon &p){
 void Cashier(Hoadon &p){
     Nhanvien *NV=new Nhanvien[MAX];
     display(NV);
+    cout<<"Nhap ngay thu ngan: ";cin>>p.day>>p.month>>p.year;
     cout<<"Nhap ma nhan vien: ";cin>>p.maNV;
     system("cls");
+    ofstream log;
+    log.open("History/log.txt",ios::app);
     cout<<"Nhap ma hoa don: ";cin>>p.maHD;
     ifstream in;
     ofstream file;
@@ -78,6 +82,7 @@ void Cashier(Hoadon &p){
             break;
             return;
     }
+    log<<p.day<<" "<<p.month<<" "<<p.year<<" "<<p.maNV<<" "<<p.maHD<<" "<<p.price<<endl;
     file<<p;
     file.close();
     in.close();
@@ -85,6 +90,7 @@ void Cashier(Hoadon &p){
     ifstream in2;
     system("cls");
     read("Hoadon/"+p.maHD+".txt");
+    log.close();
 }
 void display(Hoadon &p){
     ifstream in;

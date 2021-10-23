@@ -1,0 +1,5 @@
+Ngay thu ngan: 20/10/2021Nhan vien thu ngan: NV001
+Ten mon                       So luong  Thanh tien
+Sg Cafe                       2         36000     
+Americano                     1         24000     
+Tong gia tien: 60000
