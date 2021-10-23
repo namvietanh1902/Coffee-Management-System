@@ -269,6 +269,27 @@ void statsYear(){
     cout<<"Doanh thu nam nay la: " <<sum;
 
 }
-int main(){
-    statsYear();
+void statsNhanvien(){
+    string ma;
+    cout<<"Nhap ma nhan vien muon xem: ";cin>>ma;
+    int day,month ,year;
+    string maNV,maHD;
+    int price;
+    int sum=0;
+    ifstream infile;
+    string line[1000];
+    int tot=0;
+    infile.open("history/log.txt");
+    while(infile>>day>>month>>year>>maNV>>maHD>>price){
+        if(ma==maNV){
+            line[tot++]=maHD;
+        }
+    }
+    cout<<"Hoa don do nhan vien nay thuc hien la:\n";
+    for(int i=0;i<tot;i++){
+        cout<<line[i]<<endl;
+    }
+    
+
 }
+

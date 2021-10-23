@@ -5,5 +5,6 @@ void resetPass();
 void statsMonth();
 void statsDay();
 void statsYear();
+void statsNhanvien();
 
 #endif
