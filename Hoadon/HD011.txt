@@ -1,0 +1,7 @@
+Ngay thu ngan: 19/10/2021
+Nhan vien thu ngan: NV003
+Ten mon                       So luong  Thanh tien
+Cappuccino                    2         50000     
+Espresso                      1         22000     
+Latte                         3         84000     
+Tong gia tien: 156000

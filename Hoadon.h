@@ -7,6 +7,7 @@ using namespace std;
 class Item;
 class Hoadon{
     private:
+        int day,month,year;
         string maHD;
         string maNV;
         Item *Menu;
@@ -19,6 +20,7 @@ class Hoadon{
         friend void Cashier(Hoadon &p);
         friend  void display(Hoadon &p);
         friend ostream& operator<<(ostream& out,const Hoadon &p);
+
        
 };
 #endif

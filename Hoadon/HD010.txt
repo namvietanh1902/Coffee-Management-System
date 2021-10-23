@@ -1,0 +1,5 @@
+Ngay thu ngan: 19/10/2002Nhan vien thu ngan: NV002
+Ten mon                       So luong  Thanh tien
+Tra tac lac sua               2         40000     
+Latte                         3         84000     
+Tong gia tien: 124000
