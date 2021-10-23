@@ -20,6 +20,11 @@ std::ostream& operator <<(std::ostream &out ,const Item &p){
 }
 std::istream& operator >>(std::istream &in,Item &p){
     cout<<"Nhap ma mat hang: ";getline(cin,p.maItem);
+    while(check_exist(p)){
+        cout<<"Ma mat hang da duoc su dung, nhap lai: ";
+        getline(cin,p.maItem);
+        
+    }
     cout<<"Nhap ten mat hang: ";getline(cin,p.tenItem);
     cout<<"Nhap gia: ";in>>p.price;
     return in;
@@ -119,4 +124,13 @@ void Delete(Item *p){
     remove("Item/Item.txt");
 
     rename("temp.txt", "Item/Item.txt");
+}
+bool check_exist(const Item &x){
+    Item* p=new Item[1000];
+    int n=getInfo(p);
+    for (int i=0;i<n-1;i++){
+        if (x.maItem==p[i].maItem) return 1;
+    }
+    return 0;
+    delete [] p;
 }

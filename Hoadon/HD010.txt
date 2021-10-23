@@ -1,0 +1,5 @@
+Nhan vien thu ngan: NV003
+Ten mon                       So luong  Thanh tien
+Sg Cafe Milk                  2         44000     
+Americano                     4         96000     
+Tong gia tien: 140000

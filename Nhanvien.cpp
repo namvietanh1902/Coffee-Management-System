@@ -27,6 +27,10 @@ std::ostream& operator <<(std::ostream &out ,const Nhanvien &p){
 }
 std::istream& operator >>(std::istream &in,Nhanvien &p){
     cout<<"Nhap ma nhan vien: ";getline(cin,p.maNV);
+    while(check_exist(p)){
+        cout<<"Ma nhan vien da ton tai, nhap lai: ";getline(cin,p.maNV);
+    }
+
     cout<<"Nhap ten: ";getline(cin,p.name);
     cout<<"Nhap tuoi: ";cin>>p.age;getchar();
     cout<<"Nhap chuc vu: ";getline(cin,p.chucvu);
@@ -124,6 +128,7 @@ void Add(Nhanvien* p){
     file2.open("Nhanvien/Nhanvien.txt",ios::app);
     if(!file2.is_open()) return;
     cin>>x;
+
     file2<<x;
     getInfo(p);
     file2.close();
@@ -153,5 +158,14 @@ void Delete(Nhanvien *p){
     is.close();
     remove("Nhanvien/Nhanvien.txt");
     rename("Nhanvien/temp.txt", "Nhanvien/Nhanvien.txt");
+}
+bool check_exist(const Nhanvien &x){
+    Nhanvien* p=new Nhanvien[1000];
+    int n=getInfo(p);
+    for (int i=0;i<n-1;i++){
+        if (x.maNV==p[i].maNV) return 1;
+    }
+    return 0;
+    delete [] p;
 }
 

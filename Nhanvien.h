@@ -32,6 +32,8 @@ class Nhanvien{
         void setAddress(string address);
         string getAddress();
         void setSDT(string sdt);
+        void display();
+        friend bool check_exist(const Nhanvien &x);
         string getSDT();
         friend void display(Nhanvien*);
         friend void Add(Nhanvien *p);
