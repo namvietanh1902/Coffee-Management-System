@@ -1,0 +1,5 @@
+Nhan vien thu ngan: NV001
+Ten mon                       So luong  Thanh tien
+Americano                     3         72000     
+Espresso                      2         44000     
+Tong gia tien: 116000

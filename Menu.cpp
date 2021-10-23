@@ -152,7 +152,7 @@ void resetPass(){
             out.close();
         }
         else{
-             TextColor3(12);cout<<"\n\n\t\t\t\t\t\tNew password is incorrect,try again?";TextColor3(7);
+            TextColor3(12);cout<<"\n\n\t\t\t\t\t\tNew password is incorrect,try again?";TextColor3(7);
             cout<<"\n\n\t\t\t\t\t\t\t";TextColor3(14);cout<<"       -Notification-";TextColor3(7);
              cout<<"\n\t\t\t\t\t\t\t   +--------------------+";
 	         cout<<"\n\t\t\t\t\t\t\t   |   1.Yes            |";
@@ -182,7 +182,7 @@ void resetPass(){
 	    cout<<"\n\t\t\t\t\t\t\t   +---------------------+";
 	    cout<<"\n\n\t\t\t\t\t\tYour choice : ";
         char t; cin>>t;
-          switch(t){
+        switch(t){
         case '1':{
             system("cls");
             goto Reset;

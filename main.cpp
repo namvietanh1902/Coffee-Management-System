@@ -131,6 +131,7 @@ void menu(){
                         break;
                         case 5:
                         system("exit");
+                        break;
                     }
                 }
                 case 2:
@@ -154,7 +155,7 @@ void menu(){
 	                    cout<<"\n\t\t\t\t\t*********************************************************";
                     int d;
                     cout<<"\n\n\t\t\t\t\tNhap lua chon :";cin>>d;getchar();
-                    while(d<0||d>4){
+                    while(d<0||d>5){
                     cout<<"\n\n\t\t\t\t\tNhap lua chon :";cin>>d;getchar();
                     }
                     switch (d)
@@ -188,6 +189,7 @@ void menu(){
                         break;
                         case 5:
                         system("exit");
+                        break;
                     }
                     }
                 case 3:
@@ -214,14 +216,14 @@ void menu(){
                     break;
                 case 6:
                    system("exit");
+                   break;
             }
         }
         case 3:
         system("exit");
+        break;
     } 
 }
-
-
 int main(){
     menu();
     return 0;

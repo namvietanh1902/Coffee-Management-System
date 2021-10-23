@@ -92,31 +92,50 @@ void Add(Item *p){
     file2.close();
 }
 void Delete(Item *p){
+    Del:
     cout<<endl;InLine2(19);TextColor2(11);
     cout<<"Xoa Item";TextColor2(7);
     InLine2(19); cout<<endl;
     string x;
-    cout<<"Nhap ma cua mat hang ban muon xoa: ";cin>>x;
+    cout<<"\nNhap ma cua mat hang ban muon xoa: ";cin>>x;
     cout<<x;
-
     ifstream is("Item/Item.txt");
-    ofstream file2;
-    file2.open("temp.txt", ofstream::out);
-
-    int n=getInfo(p);
-    int i;
-    for (i=0;i<n-1;i++){
-        if(x==p[i].maItem) break;
-    }
-    for(int j=0;j<n-1;j++){
-        if(j!=i){
-     file2<<p[j];
+    TextColor2(14);cout<<"\n\n\t    -Notification-";TextColor2(7);
+    cout<<"\n  +--------------------------------+";
+	cout<<"\n  |      1.CO           2.KHONG    |";
+	cout<<"\n  +--------------------------------+";
+    char a;
+    cout<<"\n\nNhap lua chon : ";cin>>a;
+    switch (a){
+        case '1' :
+        {
+            ofstream file2;
+            file2.open("temp.txt", ofstream::out);
+            int n=getInfo(p);
+            int i;
+            for (i=0;i<n-1;i++){
+            if(x==p[i].maItem) break;
+                }
+            for(int j=0;j<n-1;j++){
+            if(j!=i){
+            file2<<p[j];
+                }
+            }
+            TextColor2(10);cout<<"\n\n\t  Da xoa thanh cong\n";TextColor2(7);
+            file2.close();
+            remove("Item/Item.txt");
+            rename("temp.txt", "Item/Item.txt");
+            break;
+        }
+        case '2':
+        {
+        cout<<"\nBan co muon tiep tuc xoa nhan vien (Y/N) :" ;char d;cin>>d;
+        if(d=='Y'){
+            system("cls");
+            goto Del;
+           }
+           break;
         }
     }
-  
-    file2.close();
     is.close();
-    remove("Item/Item.txt");
-
-    rename("temp.txt", "Item/Item.txt");
 }

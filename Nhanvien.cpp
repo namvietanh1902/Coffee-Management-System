@@ -129,29 +129,52 @@ void Add(Nhanvien* p){
     file2.close();
 }
 void Delete(Nhanvien *p){
+    DEL:
     cout<<endl;InLine1(45);TextColor1(11);
     cout<<"Xoa Nhan Vien";TextColor1(7);
     InLine1(45);cout<<endl;
     string del;
-    cout<<"Nhap ma cua nhan vien ban muon xoa: ";cin>>del;
+    cout<<"\nNhap ma cua nhan vien ban muon xoa:";cin>>del;
     ifstream is("Nhanvien/Nhanvien.txt");
-    ofstream file2;
-    file2.open("Nhanvien/temp.txt", ofstream::out);
-    int n=getInfo(p);
-    int i;
-    for ( i=0;i<n-1;i++){
-        if (del==p[i].maNV) {
+    TextColor1(14);cout<<"\n\n\t    -Notification-";TextColor1(7);
+    cout<<"\n  +--------------------------------+";
+	cout<<"\n  |      1.CO           2.KHONG    |";
+	cout<<"\n  +--------------------------------+";
+    char a;
+    cout<<"\n\nNhap lua chon : ";cin>>a;
+    switch (a){
+        case '1' :
+        {
+            ofstream file2;
+            file2.open("Nhanvien/temp.txt", ofstream::out);
+            int n=getInfo(p);
+            int i;      
+            for ( i=0;i<n-1;i++){
+            if (del==p[i].maNV) {
+            break;
+                }
+            }
+            for(int j=0;j<n-1;j++){
+            if(j!=i){
+            file2<<p[j];
+                }
+            }
+            TextColor1(10);cout<<"\n\n\t  Da xoa thanh cong\n";TextColor1(7);
+            file2.close();
+            remove("Nhanvien/Nhanvien.txt");
+            rename("Nhanvien/temp.txt", "Nhanvien/Nhanvien.txt");
             break;
         }
-    }
-    for(int j=0;j<n-1;j++){
-        if(j!=i){
-     file2<<p[j];
+        case '2':
+        {
+        cout<<"\nBan co muon tiep tuc xoa nhan vien (Y/N) :" ;char d;cin>>d;
+        if(d=='Y'){
+            system("cls");
+            goto DEL;
+           }
+           break;
         }
     }
-    file2.close();
     is.close();
-    remove("Nhanvien/Nhanvien.txt");
-    rename("Nhanvien/temp.txt", "Nhanvien/Nhanvien.txt");
 }
 
