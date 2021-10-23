@@ -20,7 +20,7 @@ Hoadon::~Hoadon(){
     delete [] soluong;
 }
 ostream& operator<<(ostream& out,const Hoadon &p){
-    out<<"Ngay thu ngan: "<<p.day<<"/"<<p.month<<"/"<<p.year;
+    out<<"Ngay thu ngan: "<<p.day<<"/"<<p.month<<"/"<<p.year<<endl;
     out<<"Nhan vien thu ngan: "<<p.maNV<<endl;
     out<<setw(30)<<left<<"Ten mon";
     out<<setw(10)<<left<<"So luong";
@@ -94,17 +94,18 @@ void Cashier(Hoadon &p){
 }
 void display(Hoadon &p){
     ifstream in;
-    in.open("DSHoaDon.txt");
-    string line;
-    while(getline(in,line)){
-        cout<<line;
+    in.open("history/log.txt");
+    int day,month ,year,price;
+    string maNV,maHD;
+    while(in>>day>>month>>year>>maNV>>maHD>>price){
+        cout<<maHD;
         cout<<endl;
     }
     in.close();
     cout<<"\nChon hoa don can xem: ";
-    string maHD;
-    cin>>maHD;
-    read("Hoadon/"+maHD+".txt");
+    string maHD1;
+    cin>>maHD1;
+    read("Hoadon/"+maHD1+".txt");
 }
         
     

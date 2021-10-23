@@ -1,5 +1,7 @@
-Ngay thu ngan: 20/10/2021Nhan vien thu ngan: NV001
+Ngay thu ngan: 19/10/2021
+Nhan vien thu ngan: NV003
 Ten mon                       So luong  Thanh tien
-Sg Cafe                       2         36000     
-Americano                     1         24000     
-Tong gia tien: 60000
+Cappuccino                    2         50000     
+Espresso                      1         22000     
+Latte                         3         84000     
+Tong gia tien: 156000
