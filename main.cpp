@@ -223,9 +223,6 @@ void menu(){
 
 
 int main(){
-
-    InLine(200);
     menu();
-  
     return 0;
 }

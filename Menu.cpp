@@ -20,7 +20,7 @@ void Manager(){
     Man:
     cout<<"\n\n\n";
 	cout<<"\t\t\t\t\t\t\t+-------------------+"<<endl;
-	cout<<"\t\t\t\t\t\t\t|    -LOGIN NOW-    |"<<endl;
+	cout<<"\t\t\t\t\t\t\t|";TextColor3(14);cout<<"    -LOGIN NOW-    ";TextColor3(7);cout<<"|"<<endl;
 	cout<<"\t\t\t\t\t\t\t+-------------------+"<<endl;
 	cout<<"\n\n";
     cout<<"\t\t\t\t\t\tUsername : ";cin>>_Username;
@@ -51,7 +51,7 @@ void Manager(){
          }
     else {
         TextColor3(12);cout<<"\n\n\t\t\t\t\t\t  Username or Password is incorrect";TextColor3(7);
-        cout<<"\n\n\t\t\t\t\t\t\t    -Notification-";
+        cout<<"\n\n\t\t\t\t\t\t\t";TextColor3(14);cout<<"    -Notification-";TextColor3(7);
         cout<<"\n\t\t\t\t\t\t\t+--------------------+";
 	    cout<<"\n\t\t\t\t\t\t\t|   1.Login again    |";
 	    cout<<"\n\t\t\t\t\t\t\t|   2.Exit           |";
@@ -80,7 +80,7 @@ void resetPass(){
     Reset:
     cout<<"\n\n\n";
 	cout<<"\t\t\t\t\t\t\t+--------------------------+"<<endl;
-	cout<<"\t\t\t\t\t\t\t|     -RESET PASSWORD-     |"<<endl;
+	cout<<"\t\t\t\t\t\t\t|";TextColor3(14);cout<<"     -RESET PASSWORD-     ";TextColor3(7);cout<<"|"<<endl;
 	cout<<"\t\t\t\t\t\t\t+--------------------------+"<<endl;
     cout<<"\n\n\t\t\t\t\tPlease input current password : ";
     char c;
@@ -153,11 +153,11 @@ void resetPass(){
         }
         else{
              TextColor3(12);cout<<"\n\n\t\t\t\t\t\tNew password is incorrect,try again?";TextColor3(7);
-             cout<<"\n\n\t\t\t\t\t\t\t    -Notification-";
-             cout<<"\n\t\t\t\t\t\t\t+--------------------+";
-	         cout<<"\n\t\t\t\t\t\t\t|   1.Yes            |";
-	         cout<<"\n\t\t\t\t\t\t\t|   2.No             |";
-	         cout<<"\n\t\t\t\t\t\t\t+--------------------+";
+            cout<<"\n\n\t\t\t\t\t\t\t";TextColor3(14);cout<<"       -Notification-";TextColor3(7);
+             cout<<"\n\t\t\t\t\t\t\t   +--------------------+";
+	         cout<<"\n\t\t\t\t\t\t\t   |   1.Yes            |";
+	         cout<<"\n\t\t\t\t\t\t\t   |   2.No             |";
+	         cout<<"\n\t\t\t\t\t\t\t   +--------------------+";
 	         cout<<"\n\n\t\t\t\t\t\tYour choice ";
             char d; cin>>d;
             switch(d){
@@ -175,11 +175,11 @@ void resetPass(){
     }
     else{
         TextColor3(12);cout<<"\n\n\t\t\t\t\t\t  Incorrect Password";TextColor3(7); 
-        cout<<"\n\n\t\t\t\t\t\t\t    -Notification-";
-        cout<<"\n\t\t\t\t\t\t\t+--------------------+";
-	    cout<<"\n\t\t\t\t\t\t\t|   1.Try again       |";
-	    cout<<"\n\t\t\t\t\t\t\t|   2.Return          |";
-	    cout<<"\n\t\t\t\t\t\t\t+--------------------+";
+        cout<<"\n\n\t\t\t\t\t\t\t";TextColor3(14);cout<<"      -Notification-";TextColor3(7);
+        cout<<"\n\t\t\t\t\t\t\t   +---------------------+";
+	    cout<<"\n\t\t\t\t\t\t\t   |     1.Try again     |";
+	    cout<<"\n\t\t\t\t\t\t\t   |     2.Return        |";
+	    cout<<"\n\t\t\t\t\t\t\t   +---------------------+";
 	    cout<<"\n\n\t\t\t\t\t\tYour choice : ";
         char t; cin>>t;
           switch(t){
