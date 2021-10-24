@@ -1,0 +1,5 @@
+Ngay thu ngan: 31/10/2021
+Nhan vien thu ngan: NV005
+Ten mon                       So luong  Thanh tien
+Macchiato                     7         168000    
+Tong gia tien: 168000

@@ -20,6 +20,11 @@ std::ostream& operator <<(std::ostream &out ,const Item &p){
 }
 std::istream& operator >>(std::istream &in,Item &p){
     cout<<"Nhap ma mat hang: ";getline(cin,p.maItem);
+    while(check_exist(p)){
+        cout<<"Ma mat hang da duoc su dung, nhap lai: ";
+        getline(cin,p.maItem);
+        
+    }
     cout<<"Nhap ten mat hang: ";getline(cin,p.tenItem);
     cout<<"Nhap gia: ";in>>p.price;
     return in;
@@ -63,6 +68,19 @@ int getInfo(Item* p){
     myFile.close();
     return total;
 }
+void displayx(Item*p,string x){
+    int total=getInfo(p);cout<<endl;
+    for (int i=0;i<total-1;i++){
+        if(x==p[i].maItem){
+            cout<<setw(10)<<left<<"MaMH";
+            cout<<setw(30)<<left<<"Ten mon";
+            cout<<setw(20)<<left<<"Gia"<<endl;
+            cout<<setw(10)<<left<<p[i].maItem;
+            cout<<setw(30)<<left<<p[i].tenItem;
+            cout<<setw(20)<<left<<p[i].price<<endl;
+        }
+    }
+}
 void display(Item* p){
     int n=getInfo(p);cout<<endl;
     InLine2(19);TextColor2(11);
@@ -98,7 +116,8 @@ void Delete(Item *p){
     InLine2(19); cout<<endl;
     string x;
     cout<<"\nNhap ma cua mat hang ban muon xoa: ";cin>>x;
-    cout<<x;
+    cout<<"\nThong tin Item muon xoa :";
+    displayx(p,x);
     ifstream is("Item/Item.txt");
     TextColor2(14);cout<<"\n\n\t    -Notification-";TextColor2(7);
     cout<<"\n  +--------------------------------+";
@@ -123,13 +142,14 @@ void Delete(Item *p){
             }
             TextColor2(10);cout<<"\n\n\t  Da xoa thanh cong\n";TextColor2(7);
             file2.close();
+            is.close();
             remove("Item/Item.txt");
             rename("temp.txt", "Item/Item.txt");
             break;
         }
         case '2':
         {
-        cout<<"\nBan co muon tiep tuc xoa nhan vien (Y/N) :" ;char d;cin>>d;
+        cout<<"\nBan co muon tiep tuc xoa Item (Y/N) :" ;char d;cin>>d;
         if(d=='Y'){
             system("cls");
             goto Del;
@@ -137,5 +157,13 @@ void Delete(Item *p){
            break;
         }
     }
-    is.close();
+}
+bool check_exist(const Item &x){
+    Item* p=new Item[1000];
+    int n=getInfo(p);
+    for (int i=0;i<n-1;i++){
+        if (x.maItem==p[i].maItem) return 1;
+    }
+    return 0;
+    delete [] p;
 }

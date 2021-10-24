@@ -1,0 +1,7 @@
+Ngay thu ngan: 28/10/2021
+Nhan vien thu ngan: NV004
+Ten mon                       So luong  Thanh tien
+Cappuccino                    2         50000     
+Macchiato                     3         72000     
+Sg Cafe Milk                  2         44000     
+Tong gia tien: 166000

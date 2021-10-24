@@ -1,5 +1,7 @@
-Nhan vien thu ngan: NV001
+Ngay thu ngan: 24/10/2021
+Nhan vien thu ngan: NV002
 Ten mon                       So luong  Thanh tien
-Ca cao                        2         28000     
-Ca cao                        1         14000     
-Tong gia tien: 42000
+Sg Cafe Milk                  3         66000     
+Macchiato                     3         72000     
+Tra tac lac sua               5         100000    
+Tong gia tien: 238000

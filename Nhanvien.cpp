@@ -5,6 +5,7 @@
 #include<stdlib.h>
 #include<windows.h>
 #include "Nhanvien.h"
+#define N 100
 using namespace std;
 void InLine1(int n){
     for (int i = 0; i < n; i++) 
@@ -98,6 +99,25 @@ int getInfo(Nhanvien* p){
     }
     return total;
 }
+void displaydel(Nhanvien*p,string del){
+    int total=getInfo(p);cout<<endl;
+    for (int i=0;i<total-1;i++){
+        if(del==p[i].maNV){
+            cout<<setw(10)<<left<<"MaNV";
+            cout<<setw(30)<<left<<"Ten";
+            cout<<setw(20)<<left<<"Chuc vu";
+            cout<<setw(10)<<left<<"Tuoi";
+            cout<<setw(25)<<left<<"Dia chi";
+            cout<<setw(15)<<left<<"So dien thoai"<<endl;
+            cout<<setw(10)<<left<<p[i].maNV;
+            cout<<setw(30)<<left<<p[i].name;
+            cout<<setw(20)<<left<<p[i].chucvu;
+            cout<<setw(10)<<left<<p[i].age;
+            cout<<setw(25)<<left<<p[i].address;
+            cout<<setw(15)<<left<<p[i].sdt<<endl;
+        }
+    }
+}
 void display(Nhanvien* p){
     int total=getInfo(p);cout<<endl;
     InLine1(45);TextColor1(11);
@@ -128,7 +148,6 @@ void Add(Nhanvien* p){
     file2.open("Nhanvien/Nhanvien.txt",ios::app);
     if(!file2.is_open()) return;
     cin>>x;
-
     file2<<x;
     getInfo(p);
     file2.close();
@@ -139,7 +158,9 @@ void Delete(Nhanvien *p){
     cout<<"Xoa Nhan Vien";TextColor1(7);
     InLine1(45);cout<<endl;
     string del;
-    cout<<"\nNhap ma cua nhan vien ban muon xoa:";cin>>del;
+    cout<<"\nNhap ma cua nhan vien ban muon xoa: ";cin>>del;
+    cout<<"\nThong tin nhan vien muon xoa :";
+    displaydel(p,del);
     ifstream is("Nhanvien/Nhanvien.txt");
     TextColor1(14);cout<<"\n\n\t    -Notification-";TextColor1(7);
     cout<<"\n  +--------------------------------+";
@@ -166,6 +187,7 @@ void Delete(Nhanvien *p){
             }
             TextColor1(10);cout<<"\n\n\t  Da xoa thanh cong\n";TextColor1(7);
             file2.close();
+            is.close();
             remove("Nhanvien/Nhanvien.txt");
             rename("Nhanvien/temp.txt", "Nhanvien/Nhanvien.txt");
             break;
@@ -180,7 +202,6 @@ void Delete(Nhanvien *p){
            break;
         }
     }
-    is.close();
 }
 bool check_exist(const Nhanvien &x){
     Nhanvien* p=new Nhanvien[1000];
@@ -191,4 +212,16 @@ bool check_exist(const Nhanvien &x){
     return 0;
     delete [] p;
 }
+int check_maNV(Nhanvien *p,string ma){
+    int total=getInfo(p);cout<<endl;
+    int check=0;
+    for (int i=0;i<total-1;i++){
+        if(ma==p[i].maNV){
+           check=1;
+        }
+    }
+    
+    return check;
+}
+
 

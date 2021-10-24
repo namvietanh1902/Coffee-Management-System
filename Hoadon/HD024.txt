@@ -1,6 +1,6 @@
-Ngay thu ngan: 25/10/2021
+Ngay thu ngan: 29/10/2021
 Nhan vien thu ngan: NV005
 Ten mon                       So luong  Thanh tien
 Latte                         2         56000     
-Americano                     2         48000     
-Tong gia tien: 104000
+Cappuccino                    4         100000    
+Tong gia tien: 156000

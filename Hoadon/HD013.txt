@@ -1,0 +1,6 @@
+Ngay thu ngan: 27/10/2021
+Nhan vien thu ngan: NV006
+Ten mon                       So luong  Thanh tien
+Mocha                         2         60000     
+Macchiato                     1         24000     
+Tong gia tien: 84000

@@ -1,0 +1,6 @@
+Ngay thu ngan: 30/10/2021
+Nhan vien thu ngan: NV003
+Ten mon                       So luong  Thanh tien
+Latte                         3         84000     
+Sg Cafe                       2         36000     
+Tong gia tien: 120000

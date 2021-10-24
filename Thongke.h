@@ -1,10 +1,7 @@
-#ifndef MENU_H
-#define MENU_H
-void Manager();
-void resetPass();
+#ifndef THONGKE_H
+#define THONGKE_H
 void statsMonth();
 void statsDay();
 void statsYear();
 void statsNhanvien();
-
 #endif

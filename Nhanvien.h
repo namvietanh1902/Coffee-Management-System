@@ -32,12 +32,14 @@ class Nhanvien{
         void setAddress(string address);
         string getAddress();
         void setSDT(string sdt);
-        void display();
-        friend bool check_exist(const Nhanvien &x);
         string getSDT();
+        void display();
+        friend void displaydel(Nhanvien*p,string del);
+        friend bool check_exist(const Nhanvien &x);
         friend void display(Nhanvien*);
         friend void Add(Nhanvien *p);
         friend void Delete(Nhanvien*p);
+        friend int check_maNV(Nhanvien *p,string ma);
 };
 
 #endif

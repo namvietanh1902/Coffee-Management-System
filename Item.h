@@ -26,6 +26,7 @@ class Item{
         int getprice();
         friend bool check_exist(const Item &x);
         friend int getInfo(Item*);
+        friend void displayx(Item*p,string x);
         friend void display(Item*);
         friend void Add(Item*);
         friend void Delete(Item*);

@@ -107,6 +107,7 @@ void display(Hoadon &p){
     cin>>maHD1;
     read("Hoadon/"+maHD1+".txt");
 }
+
         
     
    

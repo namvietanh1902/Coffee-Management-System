@@ -1,5 +1,7 @@
-Nhan vien thu ngan: NV001
+Ngay thu ngan: 26/10/2021
+Nhan vien thu ngan: NV005
 Ten mon                       So luong  Thanh tien
-Americano                     3         72000     
+Mocha                         2         60000     
 Espresso                      2         44000     
-Tong gia tien: 116000
+Cappuccino                    3         75000     
+Tong gia tien: 179000
