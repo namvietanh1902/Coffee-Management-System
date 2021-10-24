@@ -1,4 +1,4 @@
-#include "Password.h"
+#include "Menu.h"
 #include<iostream>
 #include<fstream>
 #include<sstream>
@@ -153,7 +153,7 @@ void resetPass(){
             out.close();
         }
         else{
-            TextColor3(12);cout<<"\n\n\t\t\t\t\t\tNew password is incorrect,try again?";TextColor3(7);
+             TextColor3(12);cout<<"\n\n\t\t\t\t\t\tNew password is incorrect,try again?";TextColor3(7);
             cout<<"\n\n\t\t\t\t\t\t\t";TextColor3(14);cout<<"       -Notification-";TextColor3(7);
              cout<<"\n\t\t\t\t\t\t\t   +--------------------+";
 	         cout<<"\n\t\t\t\t\t\t\t   |   1.Yes            |";
@@ -183,7 +183,7 @@ void resetPass(){
 	    cout<<"\n\t\t\t\t\t\t\t   +---------------------+";
 	    cout<<"\n\n\t\t\t\t\t\tYour choice : ";
         char t; cin>>t;
-        switch(t){
+          switch(t){
         case '1':{
             system("cls");
             goto Reset;
@@ -197,6 +197,96 @@ void resetPass(){
     }
     in.close();
 }
+void statsMonth(){
+    int m,y;
+    cout<<"Nhap thang muon xem: ";cin>>m>>y;
+    int day,month ,year;
+    string maNV,maHD;
+    int price;
+    int sum=0;
+    ifstream infile;
+    string line[1000];
+    int tot=0;
+    infile.open("history/log.txt");
+    while(infile>>day>>month>>year>>maNV>>maHD>>price){
+        if(month==m&&year==y){
+            line[tot++]=maHD;
+            sum+=price;
+        }
+    }
+    cout<<"Hoa don trong thang "<<m<<" nam "<<y<<" la:\n";
+    for(int i=0;i<tot;i++){
+        cout<<line[i]<<endl;
+    }
+    cout<<"Tong doanh thu thang nay la: " <<sum;
 
+}
+void statsDay(){
+    int d,m,y;
+    cout<<"Nhap ngay muon xem: ";cin>>d>>m>>y;
+    int day,month ,year;
+    string maNV,maHD;
+    int price;
+    int sum=0;
+    ifstream infile;
+    string line[1000];
+    int tot=0;
+    infile.open("history/log.txt");
+    while(infile>>day>>month>>year>>maNV>>maHD>>price){
+        if(day==d&&month==m&&year==y){
+            line[tot++]=maHD;
+            sum+=price;
+        }
+    }
+    cout<<"Hoa don trong ngay "<<d<<" thang "<<m<<" nam "<<y<<" la:\n";
+    for(int i=0;i<tot;i++){
+        cout<<line[i]<<endl;
+    }
+    cout<<"Doanh thu thang nay la: " <<sum;
 
+}
+void statsYear(){
+    int y;
+    cout<<"Nhap nam muon xem: ";cin>>y;
+    int day,month ,year;
+    string maNV,maHD;
+    int price;
+    int sum=0;
+    ifstream infile;
+    string line[1000];
+    int tot=0;
+    infile.open("history/log.txt");
+    cout<<"Hoa don trong nam "<<y<<" la:\n";
+    while(infile>>day>>month>>year>>maNV>>maHD>>price){
+        if(year==y){
+            cout<<line<<endl;
+            sum+=price;
+        }
+    }
+    cout<<"Doanh thu nam nay la: " <<sum;
+
+}
+void statsNhanvien(){
+    string ma;
+    cout<<"Nhap ma nhan vien muon xem: ";cin>>ma;
+    int day,month ,year;
+    string maNV,maHD;
+    int price;
+    int sum=0;
+    ifstream infile;
+    string line[1000];
+    int tot=0;
+    infile.open("history/log.txt");
+    while(infile>>day>>month>>year>>maNV>>maHD>>price){
+        if(ma==maNV){
+            line[tot++]=maHD;
+        }
+    }
+    cout<<"Hoa don do nhan vien nay thuc hien la:\n";
+    for(int i=0;i<tot;i++){
+        cout<<line[i]<<endl;
+    }
+    
+
+}
 
