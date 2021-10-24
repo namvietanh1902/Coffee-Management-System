@@ -256,15 +256,12 @@ void statsYear(){
     string line[1000];
     int tot=0;
     infile.open("history/log.txt");
+    cout<<"Hoa don trong nam "<<y<<" la:\n";
     while(infile>>day>>month>>year>>maNV>>maHD>>price){
         if(year==y){
-            line[tot++]=maHD;
+            cout<<line<<endl;
             sum+=price;
         }
-    }
-    cout<<"Hoa don trong nam "<<y<<" la:\n";
-    for(int i=0;i<tot;i++){
-        cout<<line[i]<<endl;
     }
     cout<<"Doanh thu nam nay la: " <<sum;
 
