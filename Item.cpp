@@ -18,6 +18,15 @@ std::ostream& operator <<(std::ostream &out ,const Item &p){
     out<<p.price<<endl;
     return out;
 }
+bool check_exist(const Item &x){
+    Item* p=new Item[1000];
+    int n=getInfo(p);
+    for (int i=0;i<n-1;i++){
+        if (x.maItem==p[i].maItem) return 1;
+    }
+    return 0;
+    delete [] p;
+}
 std::istream& operator >>(std::istream &in,Item &p){
     cout<<"Nhap ma mat hang: ";getline(cin,p.maItem);
     while(check_exist(p)){
@@ -83,20 +92,23 @@ void displayx(Item*p,string x){
 }
 void display(Item* p){
     int n=getInfo(p);cout<<endl;
-    InLine2(19);TextColor2(11);
+    InLine2(21);TextColor2(11);
     cout<<"Thuc Don";TextColor2(7);
-    InLine2(19); cout<<endl;
-    cout<<setw(10)<<left<<"MaMH";
-    cout<<setw(30)<<left<<"Ten mon";
-    cout<<setw(20)<<left<<"Gia"<<endl;
+    InLine2(23); cout<<endl;
+    cout<<"+--------------------------------------------------+\n";
+    cout<<setw(10)<<left<<"|  MaMH";
+    cout<<setw(26)<<left<<"|         Ten mon";
+    cout<<setw(20)<<left<<"|     Gia      |"<<endl;
+    cout<<"+--------------------------------------------------+\n";
     for (int i=0;i<n-1;i++){
-    cout<<setw(10)<<left<<p[i].maItem;
-    cout<<setw(30)<<left<<p[i].tenItem;
-    cout<<setw(20)<<left<<p[i].price<<endl;
+    cout<<"|  "<<setw(7)<<left<<p[i].maItem;
+    cout<<"|   "<<setw(22)<<left<<p[i].tenItem;
+    cout<<"|    "<<setw(10)<<left<<p[i].price<<"|"<<endl;
     }
-    cout<<endl;
+    cout<<"+--------------------------------------------------+\n";
 }
 void Add(Item *p){
+    add:
     cout<<endl;InLine2(19);TextColor2(11);
     cout<<"Them Item";TextColor2(7);
     InLine2(19); cout<<endl;
@@ -108,6 +120,24 @@ void Add(Item *p){
     file2<<x;
     getInfo(p);
     file2.close();
+    TextColor2(10);cout<<"\n\t  Da them thanh cong\n";TextColor2(7);
+    cout<<"\nBan co muon tiep tuc them Item? (y/n) : ";
+    char t;cin>>t;
+        if(t=='y'){
+            system("cls");
+            goto add;
+        }
+
+}
+int check_maItem(Item *p,string ma){
+    int total=getInfo(p);cout<<endl;
+    int check=0;
+    for (int i=0;i<total-1;i++){
+        if(ma==p[i].maItem){
+           check=1;
+        }
+    }
+    return check;
 }
 void Delete(Item *p){
     Del:
@@ -116,9 +146,20 @@ void Delete(Item *p){
     InLine2(19); cout<<endl;
     string x;
     cout<<"\nNhap ma cua mat hang ban muon xoa: ";cin>>x;
+    if(check_maItem(p,x)==0){
+        TextColor2(12); cout<<"Ma Item nay khong ton tai";TextColor2(7); 
+        cout<<"\n\nBan co muon nhap lai ma Item ? (y/n) : ";
+        char t;cin>>t;
+            if(t=='y'){
+            system("cls");
+            goto Del;
+            }
+    }
+    else{
     cout<<"\nThong tin Item muon xoa :";
     displayx(p,x);
     ifstream is("Item/Item.txt");
+    cout<<"Ban co chac muon xoa :";
     TextColor2(14);cout<<"\n\n\t    -Notification-";TextColor2(7);
     cout<<"\n  +--------------------------------+";
 	cout<<"\n  |      1.CO           2.KHONG    |";
@@ -145,6 +186,11 @@ void Delete(Item *p){
             is.close();
             remove("Item/Item.txt");
             rename("temp.txt", "Item/Item.txt");
+            cout<<"\nBan co muon tiep tuc xoa Item (y/n) :" ;char d;cin>>d;
+            if(d=='y'){
+            system("cls");
+            goto Del;
+           }
             break;
         }
         case '2':
@@ -155,15 +201,7 @@ void Delete(Item *p){
             goto Del;
            }
            break;
+            }
         }
     }
-}
-bool check_exist(const Item &x){
-    Item* p=new Item[1000];
-    int n=getInfo(p);
-    for (int i=0;i<n-1;i++){
-        if (x.maItem==p[i].maItem) return 1;
-    }
-    return 0;
-    delete [] p;
 }

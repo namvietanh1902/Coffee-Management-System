@@ -31,7 +31,7 @@ void menuchinh(){
 }
 void menuManager(){
         system("cls");TextColor(14);
-        cout<<"\n\n\t\t\t\t\t\t\t -Manager-";TextColor(7);
+        cout<<"\n\n\t\t\t\t\t\t\t -MANAGER-";TextColor(7);
         cout<<"\n\t\t\t\t+------------------------------------------------------------+";
         cout<<"\n\t\t\t\t|"<<"\t                                                     |";
         cout<<"\n\t\t\t\t|"<<"\t              1.Quan Ly Nhan Vien                    |";
@@ -52,7 +52,7 @@ void menuManager(){
 }
 void menuQuanlynhanvien(){
         system("cls");TextColor(14);
-        cout<<"\n\n\t\t\t\t\t\t\t   -Quan Ly Nhan Vien-";TextColor(7);
+        cout<<"\n\n\t\t\t\t\t\t\t   -QUAN LY NHAN VIEN-";TextColor(7);
         cout<<"\n\t\t\t\t\t*********************************************************";
         cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
         cout<<"\n\t\t\t\t\t*"<<"\t         1.Show Danh Sanh Nhan Vien             *";
@@ -70,7 +70,7 @@ void menuQuanlynhanvien(){
 void menuQuanlyItem(){
         system("cls");
         TextColor(14);
-        cout<<"\n\n\t\t\t\t\t\t\t   -Quan Ly Thuc Don-";TextColor(7);
+        cout<<"\n\n\t\t\t\t\t\t\t   -QUAN LY THUC DON-";TextColor(7);
         cout<<"\n\t\t\t\t\t*********************************************************";
         cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
         cout<<"\n\t\t\t\t\t*"<<"\t             1.Show Thuc Don                    *";
@@ -86,8 +86,8 @@ void menuQuanlyItem(){
 	    cout<<"\n\t\t\t\t\t*********************************************************";
 }
 void menuThongke(){
-        system("cls");
-        cout<<"\n\n\t\t\t\t\t\t\t\t    -Thong Ke-";
+        system("cls");TextColor(14);
+        cout<<"\n\n\t\t\t\t\t\t\t\t    -THONG KE-";TextColor(7);
         cout<<"\n\t\t\t\t\t*******************************************************************";
         cout<<"\n\t\t\t\t\t*"<<"\t                                                          *";
         cout<<"\n\t\t\t\t\t*"<<"\t               1.Thong Ke Theo Ngay                       *";
@@ -228,9 +228,9 @@ void menu(){
                 case 3:
                 { 
                     system("cls");
-                    cout<<endl;InLine(30);TextColor(11);
+                    cout<<endl;InLine(21);TextColor(11);
                     cout<<"Danh Sach Hoa Don";TextColor(7);
-                    InLine(30); cout<<endl;
+                    InLine(21); cout<<endl;
                     Hoadon a;
                     display(a);
                     system("pause");
@@ -288,7 +288,8 @@ void menu(){
                             break;
 
                     }
-                case 5:{
+                case 5:
+                {
                     system("cls");
                     resetPass();
                     goto Manager;

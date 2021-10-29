@@ -1,0 +1,7 @@
+Ngay thu ngan: 2/11/2021
+Nhan vien thu ngan: NV006
+Ten mon                       So luong  Thanh tien
+Sg Cafe                       3         54000     
+Macchiato                     3         72000     
+Latte                         2         56000     
+Tong gia tien: 182000

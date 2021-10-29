@@ -89,6 +89,12 @@ void statsDay(){
     }
     if(tot==0){
         cout<<"Ngay "<<d<<" thang "<<m<<" nam "<<y<<" khong co hoa don nao\n";
+        cout<<"\nBan co muon tiep tuc thao tac thong ke doanh thu theo ngay ? (y/n) :  ";
+        char t;cin>>t;
+        if(t=='y'){
+            system("cls");
+            goto Nhapngay;
+        }
     }
     else{
     cout<<"Hoa don trong ngay "<<d<<" thang "<<m<<" nam "<<y<<" la:\n";
@@ -96,6 +102,12 @@ void statsDay(){
         cout<<line[i]<<endl;
     }
     cout<<"Doanh thu ngay nay la: " <<sum<<endl;
+    cout<<"\nBan co muon tiep tuc thao tac thong ke doanh thu theo ngay ? (y/n) :  ";
+        char t;cin>>t;
+        if(t=='y'){
+            system("cls");
+            goto Nhapngay;
+             }
         }
     }
 }
@@ -113,7 +125,7 @@ void statsMonth(){
         if(t=='y'){
             system("cls");
             goto Nhapthang;
-        }
+        } 
     }
     else{
     int day,month ,year;
@@ -132,6 +144,12 @@ void statsMonth(){
     }
     if(tot==0){
         cout<<"Thang "<<m<<" nam "<<y<<" khong co hoa don nao\n";
+        cout<<"\nBan co muon tiep tuc thao tac thong ke doanh thu theo thang ? (y/n) :  ";
+        char t;cin>>t;
+        if(t=='y'){
+            system("cls");
+            goto Nhapthang;
+        }
     }
     else{
     cout<<"Hoa don trong thang "<<m<<" nam "<<y<<" la:\n";
@@ -139,6 +157,12 @@ void statsMonth(){
         cout<<line[i]<<endl;
     }
     cout<<"Tong doanh thu thang nay la: " <<sum<<endl;
+    cout<<"\nBan co muon tiep tuc thao tac thong ke doanh thu theo nam ? (y/n) :  ";
+        char t;cin>>t;
+        if(t=='y'){
+            system("cls");
+            goto Nhapthang;
+            }
         }
     }
 }
@@ -175,6 +199,12 @@ void statsYear(){
     }
     if(tot==0){
         cout<<"Nam "<<y<<" khong co hoa don nao\n";
+        cout<<"\nBan co muon tiep tuc thao tac thong ke doanh thu theo nam ? (y/n) :  ";
+        char t;cin>>t;
+        if(t=='y'){
+            system("cls");
+            goto Nhapnam;
+        }
     }
     else{
     cout<<"Hoa don trong nam "<<y<<" la:\n";
@@ -182,6 +212,12 @@ void statsYear(){
         cout<<line[i]<<endl;
     }
     cout<<"Doanh thu nam nay la: " <<sum<<endl;
+    cout<<"\nBan co muon tiep tuc thao tac thong ke doanh thu theo nam ? (y/n) :  ";
+        char t;cin>>t;
+        if(t=='y'){
+            system("cls");
+            goto Nhapnam;
+        }
         }
     }
 }
@@ -195,7 +231,7 @@ void statsNhanvien(){
     cout<<"Nhap ma nhan vien muon xem: ";cin>>ma;
     if(check_maNV(NV,ma)==0){
         TextColor4(12);cout<<"\nMa nhan vien khong hop le\n";TextColor4(7);
-        cout<<"\nBan co muon nhap lai ma nhan vien muon xem (y/n) : ";
+        cout<<"\nBan co muon nhap lai ma nhan vien muon xem ?(y/n) : ";
         char t;cin>>t;
         if(t=='y'){
             system("cls");
@@ -219,12 +255,24 @@ void statsNhanvien(){
     }
     if(tot==0){
         cout<<"Nhan vien nay khong co hoa don nao\n";
+        cout<<"\nBan co muon tiep tuc thao tac thong ke doanh thu theo nhan vien ? (y/n) :  ";
+        char t;cin>>t;
+        if(t=='y'){
+            system("cls");
+            goto NhapmaNV;
+        }
     }else{
     cout<<"Hoa don do nhan vien nay thuc hien la:\n";
     for(int i=0;i<tot;i++){
         cout<<line[i]<<endl;
             }
-        cout<<"Doang thu cua nhan vien nay la : "<<sum<<endl;    
+        cout<<"Doang thu cua nhan vien nay la : "<<sum<<endl; 
+        cout<<"\nBan co muon tiep tuc thao tac thong ke doanh thu theo nhan vien ? (y/n) :  ";
+        char t;cin>>t;
+        if(t=='y'){
+            system("cls");
+            goto NhapmaNV;
+            }   
         }
     }
 

@@ -30,6 +30,6 @@ class Item{
         friend void display(Item*);
         friend void Add(Item*);
         friend void Delete(Item*);
-        
+        friend int check_maItem(Item *p,string ma);        
 };
 #endif

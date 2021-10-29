@@ -34,3 +34,27 @@ Phuc Vu
 22
 69 Hung Vuong
 0932847721
+NV007
+Nguyen Van An
+Phuc Vu
+21
+32 Vo Thi Sau
+0923652154
+NV008
+Pham Nam Em
+Phuc Vu
+20
+365 Ngo Quyen
+0905321435
+NV009
+Ngo Duc Manh
+Phuc Vu
+23
+322 Le Do
+0936521265
+NV010
+Tran Phi Nghia
+Phuc Vu
+22
+265 Hai Ba Trung
+0905632425

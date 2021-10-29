@@ -1,6 +1,17 @@
 #include "Hoadon.h"
 #include "Item.h"
 #include "Nhanvien.h"
+#include "Thongke.h"
+#include<windows.h>
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+void TextColor5(int x)
+{
+	HANDLE mau;
+	mau = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(mau,x);
+}
 void read(const string &x){
     ifstream in;
     in.open(x);
@@ -10,7 +21,7 @@ void read(const string &x){
     }
     in.close();
 }
-using namespace std;
+
 Hoadon::Hoadon(){
     Menu=new Item[MAX];
     soluong=new int[MAX];
@@ -18,6 +29,15 @@ Hoadon::Hoadon(){
 Hoadon::~Hoadon(){
     delete [] Menu;
     delete [] soluong;
+}
+bool check_exist(const string &x){
+    ifstream in;
+    in.open("Hoadon/"+x+".txt");
+    if(in){
+        return 1;
+    }
+    in.close();
+    return 0;
 }
 ostream& operator<<(ostream& out,const Hoadon &p){
     out<<"Ngay thu ngan: "<<p.day<<"/"<<p.month<<"/"<<p.year<<endl;
@@ -34,26 +54,41 @@ ostream& operator<<(ostream& out,const Hoadon &p){
     return out;
 }
 void Cashier(Hoadon &p){
+    Nhapngay:
+    cout<<"Nhap ngay thu ngan: ";cin>>p.day>>p.month>>p.year;
+    if(KiemTraNgay(p.day,p.month,p.year)==0){
+        TextColor5(12);cout<<"\nNgay,thang,nam khong hop le\n";TextColor5(7);
+        cout<<"\nBan co muon nhap lai ngay thu ngan (y/n) : ";
+        char t;cin>>t;
+        if(t=='y'){
+            system("cls");
+            goto Nhapngay;
+        }
+    }
+    else{
+    NhapmaNV:
     Nhanvien *NV=new Nhanvien[MAX];
     display(NV);
-    cout<<"Nhap ngay thu ngan: ";cin>>p.day>>p.month>>p.year;
     cout<<"Nhap ma nhan vien: ";cin>>p.maNV;
-    system("cls");
+    if(check_maNV(NV,p.maNV)==0){
+        TextColor5(12);cout<<"\nMa nhan vien khong hop le\n";TextColor5(7);
+        cout<<"\nBan co muon nhap lai ma nhan vien muon xem ?(y/n) : ";
+        char t;cin>>t;
+        if(t=='y'){
+            system("cls");
+            cout<<"Nhap ngay thu ngan: "<<p.day<<"/"<<p.month<<"/"<<p.year;
+            goto NhapmaNV;
+        }
+    }
+    else{
     ofstream log;
     log.open("History/log.txt",ios::app);
     cout<<"Nhap ma hoa don: ";cin>>p.maHD;
-    ifstream in;
-    ofstream file;
-    ofstream out;
-    out.open("DSHoaDon.txt",ios::app);
-    
-    in.open("Hoadon/"+p.maHD+".txt");
-    while (in){
+    ofstream file; 
+    while (check_exist(p.maHD)){
         cout<<"Ma da duoc su dung, vui long nhap lai: ";
         cin>>p.maHD;
-        in.open("Hoadon/"+p.maHD+".txt");
     }
-    out<<p.maHD<<endl;
     file.open("Hoadon/"+p.maHD+".txt");
     Cont:
     system("cls");
@@ -63,6 +98,16 @@ void Cashier(Hoadon &p){
     cout<<"Nhap ma mat hang: ";
     string line;
     cin>>line;
+    if(check_maItem(x,line)==0){
+        TextColor5(12); cout<<"Ma Item nay khong ton tai";TextColor5(7); 
+        cout<<"\n\nBan co muon nhap lai ma Item ? (y/n) : ";
+        char t;cin>>t;
+            if(t=='y'){
+            system("cls");
+            goto Cont;
+            }
+    }
+    else{
     for (int i=0;i<n-1;i++){
         if(line==x[i].getmaItem()) {p.Menu[p.total]=x[i];
         break;} 
@@ -70,7 +115,6 @@ void Cashier(Hoadon &p){
     cout<<"Nhap so luong: ";cin>>p.soluong[p.total];
     p.price+=p.soluong[p.total]*p.Menu[p.total].getprice();
     p.total++;
-    
     cout<<"Thanh tien?\n1.Khong\n2.Co\n";
     int choice;
     cin>>choice;
@@ -85,27 +129,61 @@ void Cashier(Hoadon &p){
     log<<p.day<<" "<<p.month<<" "<<p.year<<" "<<p.maNV<<" "<<p.maHD<<" "<<p.price<<endl;
     file<<p;
     file.close();
-    in.close();
-    out.close();
     ifstream in2;
     system("cls");
     read("Hoadon/"+p.maHD+".txt");
     log.close();
+        }
+        }
+    }
 }
 void display(Hoadon &p){
+    hoadon:
     ifstream in;
     in.open("history/log.txt");
     int day,month ,year,price;
     string maNV,maHD;
+    cout<<"";
+   	cout<<"+----------------------------------------------------------+\n";
+	cout<<"|  Ma Hoa Don"<<"\t|\t"<<"Thoi gian thuc hien giao dich      |\n";
+	cout<<"+----------------------------------------------------------+\n";
     while(in>>day>>month>>year>>maNV>>maHD>>price){
-        cout<<maHD;
-        cout<<endl;
+    
+        if(day<10&&month<10){
+            cout<<"|  "<<maHD<<"\t|\t"<<day<<"/"<<month<<"/"<<setw(21)<<left<<year<<setw(11)<<right<<"|"<<endl;
+        }
+        else if(day<10){
+            cout<<"|  "<<maHD<<"\t|\t"<<day<<"/"<<month<<"/"<<setw(21)<<left<<year<<setw(10)<<right<<"|"<<endl;
+        }
+        else if(month<10){
+            cout<<"|  "<<maHD<<"\t|\t"<<day<<"/"<<month<<"/"<<setw(21)<<left<<year<<setw(10)<<right<<"|"<<endl;
+        }
+        else cout<<"|  "<<maHD<<"\t|\t"<<day<<"/"<<month<<"/"<<setw(20)<<left<<year<<setw(10)<<right<<"|"<<endl;
     }
+    cout<<"+----------------------------------------------------------+\n";
     in.close();
     cout<<"\nChon hoa don can xem: ";
     string maHD1;
     cin>>maHD1;
+    if(!check_exist(maHD1)){
+        TextColor5(12); cout<<"\nHoa don nay khong ton tai"; TextColor5(7);
+        cout<<"\nBan co muon tiep tuc xem hoa don? (y/n) : ";
+        char t;cin>>t;getchar();
+
+        if(t=='y'){
+            system("cls");
+            goto hoadon;
+        }
+    }
+    else{
     read("Hoadon/"+maHD1+".txt");
+    cout<<"Ban co muon tiep tuc xem hoa don? (y/n) : ";
+     char t;cin>>t;
+        if(t=='y'){
+            system("cls");
+            goto hoadon;
+        }
+    }
 }
 
         

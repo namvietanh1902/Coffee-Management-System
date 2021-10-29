@@ -22,5 +22,3 @@ Mocha
 MH008
 Macchiato
 24000
-
-
