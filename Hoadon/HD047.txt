@@ -1,0 +1,5 @@
+Ngay thu ngan: 3/11/2021
+Nhan vien thu ngan: NV006
+Ten mon                       So luong  Thanh tien
+Cappuccino                    6         150000    
+Tong gia tien: 150000

@@ -1,0 +1,5 @@
+Ngay thu ngan: 3/11/2021
+Nhan vien thu ngan: NV004
+Ten mon                       So luong  Thanh tien
+Latte                         3         84000     
+Tong gia tien: 84000

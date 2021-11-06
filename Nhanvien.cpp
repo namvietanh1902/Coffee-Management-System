@@ -40,7 +40,6 @@ std::istream& operator >>(std::istream &in,Nhanvien &p){
     while(check_exist(p)){
         cout<<"Ma nhan vien da ton tai, nhap lai: ";getline(cin,p.maNV);
     }
-
     cout<<"Nhap ten: ";getline(cin,p.name);
     cout<<"Nhap tuoi: ";cin>>p.age;getchar();
     cout<<"Nhap chuc vu: ";getline(cin,p.chucvu);

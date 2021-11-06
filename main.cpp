@@ -1,7 +1,8 @@
 #include "Nhanvien.h"
 #include "Item.h"
 #include"Hoadon.h"
-#include "Password.h"
+#include "PasswordQL.h"
+#include "PasswordNV.h"
 #include "Thongke.h"
 #include<iostream>
 #include<Windows.h>
@@ -21,13 +22,32 @@ void menuchinh(){
     cout<<"\n\n\t\t\t\t\t\t\t\t-MENU-";TextColor(7);
     cout<<"\n\t\t\t\t\t\t========================================";
     cout<<"\n\t\t\t\t\t\t||"<<"\t                              ||";
-    cout<<"\n\t\t\t\t\t\t||"<<"\t       1.Cashier              ||";
+    cout<<"\n\t\t\t\t\t\t||"<<"\t       1.Staff                ||";
     cout<<"\n\t\t\t\t\t\t||"<<"\t                              ||";
     cout<<"\n\t\t\t\t\t\t||"<<"\t       2.Manager              ||";
 	cout<<"\n\t\t\t\t\t\t||"<<"\t                              ||";
 	cout<<"\n\t\t\t\t\t\t||"<<"\t       3.Exit                 ||";
 	cout<<"\n\t\t\t\t\t\t||"<<"\t                              ||";
 	cout<<"\n\t\t\t\t\t\t========================================";
+}
+void menuStaff(){
+    system("cls");TextColor(14);
+	        cout<<"\n\n\t\t\t\t\t\t     -STAFF-";TextColor(7);
+	        cout<<"\n\t\t\t+---------------------------------------------------------------+";
+	        cout<<"\n\t\t\t|"<<"                                                     \t\t|";
+	        cout<<"\n\t\t\t|"<<"                1.Hien Thi Danh Sach Nhan Vien       \t\t|";
+	        cout<<"\n\t\t\t|"<<"                                                     \t\t|";
+            cout<<"\n\t\t\t|"<<"                2.Hien Thi Danh Sach Item            \t\t|";
+	        cout<<"\n\t\t\t|"<<"                                                     \t\t|";
+	        cout<<"\n\t\t\t|"<<"                3.Them Hoa Don                       \t\t|";
+		    cout<<"\n\t\t\t|"<<"                                                     \t\t|";
+		    cout<<"\n\t\t\t|"<<"                4.Doi Pass                           \t\t|";
+		    cout<<"\n\t\t\t|"<<"                                                     \t\t|";
+	        cout<<"\n\t\t\t|"<<"                5.Quay Lai                           \t\t|";       
+	        cout<<"\n\t\t\t|"<<"                                                     \t\t|";
+		    cout<<"\n\t\t\t|"<<"                6.Exit                               \t\t|";
+		    cout<<"\n\t\t\t|"<<"                                                     \t\t|";
+		    cout<<"\n\t\t\t+---------------------------------------------------------------+";
 }
 void menuManager(){
         system("cls");TextColor(14);
@@ -55,7 +75,7 @@ void menuQuanlynhanvien(){
         cout<<"\n\n\t\t\t\t\t\t\t   -QUAN LY NHAN VIEN-";TextColor(7);
         cout<<"\n\t\t\t\t\t*********************************************************";
         cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
-        cout<<"\n\t\t\t\t\t*"<<"\t         1.Show Danh Sanh Nhan Vien             *";
+        cout<<"\n\t\t\t\t\t*"<<"\t         1.Hien Thi Danh Sanh Nhan Vien         *";
         cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
         cout<<"\n\t\t\t\t\t*"<<"\t         2.Them Nhan Vien                       *";
 	    cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
@@ -73,7 +93,7 @@ void menuQuanlyItem(){
         cout<<"\n\n\t\t\t\t\t\t\t   -QUAN LY THUC DON-";TextColor(7);
         cout<<"\n\t\t\t\t\t*********************************************************";
         cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
-        cout<<"\n\t\t\t\t\t*"<<"\t             1.Show Thuc Don                    *";
+        cout<<"\n\t\t\t\t\t*"<<"\t             1.Hien Thi Thuc Don                *";
         cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
         cout<<"\n\t\t\t\t\t*"<<"\t             2.Them Item                        *";
 	    cout<<"\n\t\t\t\t\t*"<<"\t                                                *";
@@ -115,13 +135,61 @@ void menu(){
     switch (a)
     {
         case 1:
-        {
+        {   
             system("cls");
-            Hoadon p;
-            Cashier(p);
+            Staff();
             system("pause");
-            goto Menu;
-            break;
+            Staff:
+            menuStaff();
+            int k;
+            cout<<"\n\n\t\t\tNhap lua chon :";cin>>k;
+            while(k<0||k>6){
+            cout<<"\n\n\t\t\tNhap lua chon :";cin>>k;
+            }
+            switch (k){
+                case 1:
+                {
+                    Nhanvien *nv=new Nhanvien[N];
+                    system("cls");
+                    display(nv);
+                    system("pause");
+                    delete [] nv;
+                    goto Staff;
+                    break;
+                }
+                case 2:
+                {
+                    Item *x=new Item[N];
+                    system("cls");
+                    display(x);
+                    system("pause");
+                    delete [] x;
+                    goto Staff;
+                    break;
+                }
+                case 3:
+                {
+                    system("cls");
+                    Hoadon p;
+                    Cashier(p);
+                    system("pause");
+                    goto Staff;
+                    break;
+                }
+                case 4:
+                {
+                    system("cls");
+                    resetPassNV();
+                    goto Staff;
+                    break;
+                }
+                case 5:
+                    goto Menu;
+                    break;
+                case 6:
+                    exit(0);
+                    break;
+            }  
         }
         case 2:
         {   
@@ -133,7 +201,7 @@ void menu(){
             int b;
             cout<<"\n\n\t\t\t\tNhap lua chon :";cin>>b;
             while(b<0||b>7){
-            cout<<"\n\n\t\t\t\t\tNhap lua chon :";cin>>b;
+            cout<<"\n\n\t\t\t\tNhap lua chon :";cin>>b;
             }
             switch (b)
             {
@@ -179,8 +247,11 @@ void menu(){
                         case 5:
                         exit(0);
                         break;
+                        
                     }
+                    delete [] NV;
                 }
+                
                 case 2:
                 {
                     QuanlyItem:
@@ -224,6 +295,7 @@ void menu(){
                         exit(0);
                         break;
                     }
+                    delete [] x;
                     }
                 case 3:
                 { 

@@ -1,4 +1,4 @@
-#include "Password.h"
+#include "PasswordNV.h"
 #include<iostream>
 #include<fstream>
 #include<sstream>
@@ -6,11 +6,12 @@
 #include<conio.h>
 #include<Windows.h>
 using namespace std;
-void TextColor3(int x){
+void TextColor7(int x){
     HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute( color , x );
 }
-void pass(string &_Pass){
+void passInput(string &x){
+    x="";
     char c;
     do
         {
@@ -20,56 +21,39 @@ void pass(string &_Pass){
     {
         break;
     }
-    if((c==8 || c==127) && !_Pass.empty())
+    if((c==8 || c==127) && !x.empty())
     {
         cout<<"\b \b";
-        _Pass.erase(_Pass.size()-1);
+        x.erase(x.size()-1);
     }
-   else{ _Pass.push_back(c);
+   else{ x.push_back(c);
     _putch('*');}
 
-}while(c!=13 || c!=' ');   
+}while(c!=13 || c!=' ');
 }
-void Manager(){
+void Staff(){
     string _Username,_Pass,username,pass;
     ifstream in;
-    in.open("admin/admin.txt");
+    in.open("Password/staff.txt");
     in>>username>>pass;
     Man:
     cout<<"\n\n\n";
 	cout<<"\t\t\t\t\t\t\t+-------------------+"<<endl;
-	cout<<"\t\t\t\t\t\t\t|";TextColor3(14);cout<<"    -LOGIN NOW-    ";TextColor3(7);cout<<"|"<<endl;
+	cout<<"\t\t\t\t\t\t\t|";TextColor7(14);cout<<"    -LOGIN NOW-    ";TextColor7(7);cout<<"|"<<endl;
 	cout<<"\t\t\t\t\t\t\t+-------------------+"<<endl;
 	cout<<"\n\n";
     cout<<"\t\t\t\t\t\tUsername : ";cin>>_Username;
     cout<<"\n";
     cout<<"\t\t\t\t\t\tPassword : ";
-    _Pass="";
-    char c;
-    do
-        {
-    c = _getch();
-
-    if (c == 13 || c == ' ' )
-    {
-        break;
-    }
-    if((c==8 || c==127) && !_Pass.empty())
-    {
-        cout<<"\b \b";
-        _Pass.erase(_Pass.size()-1);
-    }
-   else{ _Pass.push_back(c);
-    _putch('*');}
-
-}while(c!=13 || c!=' ');
+    
+    passInput(_Pass);
     if (_Username==username&&pass==_Pass)
     {
-        TextColor3(10);cout<<"\n\n\t\t\t\t\t\t\tLogged in successfully!\n";TextColor3(7);
+        TextColor7(10);cout<<"\n\n\t\t\t\t\t\t\tLogged in successfully!\n";TextColor7(7);
          }
     else {
-        TextColor3(12);cout<<"\n\n\t\t\t\t\t\t  Username or Password is incorrect";TextColor3(7);
-        cout<<"\n\n\t\t\t\t\t\t\t";TextColor3(14);cout<<"    -Notification-";TextColor3(7);
+        TextColor7(12);cout<<"\n\n\t\t\t\t\t\t  Username or Password is incorrect";TextColor7(7);
+        cout<<"\n\n\t\t\t\t\t\t\t";TextColor7(14);cout<<"    -Notification-";TextColor7(7);
         cout<<"\n\t\t\t\t\t\t\t+--------------------+";
 	    cout<<"\n\t\t\t\t\t\t\t|   1.Login again    |";
 	    cout<<"\n\t\t\t\t\t\t\t|   2.Exit           |";
@@ -90,88 +74,38 @@ void Manager(){
     }
     in.close();
 }
-void resetPass(){
+void resetPassNV(){
     string _Pass,username,pass,newpass,data;
     ifstream in;
-    in.open("admin/admin.txt");
+    in.open("Password/staff.txt");
     in>>username>>pass;
     Reset:
     cout<<"\n\n\n";
 	cout<<"\t\t\t\t\t\t\t+--------------------------+"<<endl;
-	cout<<"\t\t\t\t\t\t\t|";TextColor3(14);cout<<"     -RESET PASSWORD-     ";TextColor3(7);cout<<"|"<<endl;
+	cout<<"\t\t\t\t\t\t\t|";TextColor7(14);cout<<"     -RESET PASSWORD-     ";TextColor7(7);cout<<"|"<<endl;
 	cout<<"\t\t\t\t\t\t\t+--------------------------+"<<endl;
     cout<<"\n\n\t\t\t\t\tPlease input current password : ";
-    char c;
-    _Pass="";
-   do
-{
-    c = _getch();
-
-    if (c == 13 || c == ' ' )
-    {
-        break;
-    }
-    if((c==8 || c==127) && !_Pass.empty())
-    {
-        cout<<"\b \b";
-        _Pass.erase(_Pass.size()-1);
-    }
-   else{ _Pass.push_back(c);
-    _putch('*');}
-
-}while(c!=13 || c!=' ');
+    passInput(_Pass);
     if (_Pass==pass){
         datlai:
         newpass="";
         data="";
         cout<<"\n\n\t\t\t\t\t\t\t New password : ";
-       do
-    {
-        c =   _getch();
-
-    if (c == 13 || c == ' ' )
-    {
-            break;
-    }
-    if((c==8 || c==127) && !newpass.empty())
-    {
-            cout<<"\b \b";
-            newpass.erase(newpass.size()-1);
-    }
-        else{ newpass.push_back(c);
-        _putch('*');}
-
-    }while(c!=13 || c!=' ');
+        passInput(newpass);
         cout<<"\n\n\t\t\t\t\t     Retype your new password : ";
-        do  
-{
-    c = _getch();
-
-    if (c == 13 || c == ' ' )
-    {
-        break;
-    }
-    if((c==8 || c==127) && !data.empty())
-    {
-        cout<<"\b \b";
-        data.erase(data.size()-1);
-    }
-   else{ data.push_back(c);
-    _putch('*');}
-
-    }while(c!=13 || c!=' ');
+        passInput(data);
         if (newpass==data){
            
-            TextColor3(10);cout<<"\n\n\t\t\t\t\t\t\tSuccessful change\n\n";TextColor3(7);
+            TextColor7(10);cout<<"\n\n\t\t\t\t\t\t\tSuccessful change\n\n";TextColor7(7);
             ofstream out;
-            out.open("admin/admin.txt",ios::trunc);
+            out.open("Password/staff.txt",ios::trunc);
             out<<username<<" "<<newpass;
             system("pause");
             out.close();
         }
         else{
-             TextColor3(12);cout<<"\n\n\t\t\t\t\t\tNew password is incorrect,try again?";TextColor3(7);
-            cout<<"\n\n\t\t\t\t\t\t\t";TextColor3(14);cout<<"       -Notification-";TextColor3(7);
+             TextColor7(12);cout<<"\n\n\t\t\t\t\t\tNew password is incorrect,try again?";TextColor7(7);
+            cout<<"\n\n\t\t\t\t\t\t\t";TextColor7(14);cout<<"       -Notification-";TextColor7(7);
              cout<<"\n\t\t\t\t\t\t\t   +--------------------+";
 	         cout<<"\n\t\t\t\t\t\t\t   |   1.Yes            |";
 	         cout<<"\n\t\t\t\t\t\t\t   |   2.No             |";
@@ -192,8 +126,8 @@ void resetPass(){
         }
     }
     else{
-        TextColor3(12);cout<<"\n\n\t\t\t\t\t\t  Incorrect Password";TextColor3(7); 
-        cout<<"\n\n\t\t\t\t\t\t\t";TextColor3(14);cout<<"      -Notification-";TextColor3(7);
+        TextColor7(12);cout<<"\n\n\t\t\t\t\t\t  Incorrect Password";TextColor7(7); 
+        cout<<"\n\n\t\t\t\t\t\t\t";TextColor7(14);cout<<"      -Notification-";TextColor7(7);
         cout<<"\n\t\t\t\t\t\t\t   +---------------------+";
 	    cout<<"\n\t\t\t\t\t\t\t   |     1.Try again     |";
 	    cout<<"\n\t\t\t\t\t\t\t   |     2.Return        |";

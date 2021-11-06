@@ -169,7 +169,6 @@ void display(Hoadon &p){
         TextColor5(12); cout<<"\nHoa don nay khong ton tai"; TextColor5(7);
         cout<<"\nBan co muon tiep tuc xem hoa don? (y/n) : ";
         char t;cin>>t;getchar();
-
         if(t=='y'){
             system("cls");
             goto hoadon;

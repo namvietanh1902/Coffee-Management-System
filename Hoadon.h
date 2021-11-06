@@ -20,7 +20,5 @@ class Hoadon{
         friend void Cashier(Hoadon &p);
         friend  void display(Hoadon &p);
         friend ostream& operator<<(ostream& out,const Hoadon &p);
-
-       
 };
 #endif
