@@ -218,9 +218,18 @@ void Delete(Nhanvien *p){
     cout<<"\n\nNhap lua chon : ";cin>>a;
     switch (a){
         case '1' :
-        {
+        {   
+            ofstream out;
+            ifstream in;
+            string username,pass;
+
+            in.open("Password/staff.txt");
+            out.open("Password/temp.txt");
             ofstream file2;
             file2.open("Nhanvien/temp.txt", ofstream::out);
+            while(in>>username>>pass){
+                if(username!=del) out<<username<<" "<<pass<<endl;
+            }
             int n=getInfo(p);
             int i;      
             for ( i=0;i<n-1;i++){
@@ -236,6 +245,10 @@ void Delete(Nhanvien *p){
             TextColor1(10);cout<<"\n\n\t  Da xoa thanh cong\n";TextColor1(7);
             file2.close();
             is.close();
+            in.close();
+            out.close();
+            remove("Password/staff.txt");
+            rename("Password/temp.txt","Password/staff.txt");
             remove("Nhanvien/Nhanvien.txt");
             rename("Nhanvien/temp.txt", "Nhanvien/Nhanvien.txt");
             cout<<"\nBan co muon tiep tuc xoa nhan vien (y/n) :" ;
