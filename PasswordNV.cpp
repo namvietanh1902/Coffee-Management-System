@@ -36,7 +36,6 @@ std::string Staff(){
     ifstream in;
     bool found=false;
     in.open("Password/staff.txt");
-    Man:
     cout<<"\n\n\n";
 	cout<<"\t\t\t\t\t\t\t+-------------------+"<<endl;
 	cout<<"\t\t\t\t\t\t\t|";TextColor7(14);cout<<"    -LOGIN NOW-    ";TextColor7(7);cout<<"|"<<endl;
@@ -68,7 +67,7 @@ std::string Staff(){
     switch(d){
         case '1':{
             system("cls");
-            goto Man;
+            Staff();
             break;
         }
         case '2':{
@@ -82,11 +81,12 @@ std::string Staff(){
 }
 void resetPassNV(const string &username){
     string _Pass,_Username,pass,newpass,data;
-    ifstream in;
-    in.open("Password/staff.txt");
-    while(in>>_Username>>pass){
+    ifstream on;
+    on.open("Password/staff.txt");
+    while(on>>_Username>>pass){
         if (username==_Username) break;
     }
+    on.close();
     Reset:
     cout<<"\n\n\n";
 	cout<<"\t\t\t\t\t\t\t+--------------------------+"<<endl;
@@ -96,6 +96,8 @@ void resetPassNV(const string &username){
     passInput(_Pass);
     if (_Pass==pass){
         datlai:
+        data="";
+        newpass="";
         cout<<"\n\n\t\t\t\t\t\t\t New password : ";
         passInput(newpass);
         cout<<"\n\n\t\t\t\t\t     Retype your new password : ";
@@ -104,7 +106,7 @@ void resetPassNV(const string &username){
            
             TextColor7(10);cout<<"\n\n\t\t\t\t\t\t\tSuccessful change\n\n";TextColor7(7);
             ofstream out;
-            out.open("temp.txt");
+            out.open("Password/temp.txt",ios::out);
             ifstream in;
             in.open("Password/staff.txt");
             while(in>>_Username>>pass){
@@ -113,11 +115,11 @@ void resetPassNV(const string &username){
                 }
                 else out<<_Username<<" "<<pass<<endl;
             }
-            remove("Password/staff.txt");
-            rename("temp.txt","Password/staff.txt");
             system("pause");
             in.close();
             out.close();
+            remove("Password/staff.txt");
+            rename("Password/temp.txt","Password/staff.txt");
         }
         else{
              TextColor7(12);cout<<"\n\n\t\t\t\t\t\tNew password is incorrect,try again?";TextColor7(7);
@@ -162,7 +164,7 @@ void resetPassNV(const string &username){
         }
     }
     }
-    in.close();
+
 }
 
 
