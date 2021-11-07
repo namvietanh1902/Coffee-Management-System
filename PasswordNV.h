@@ -3,6 +3,6 @@
 #include <iostream>
 
 void passInput(std::string &x);
-void Staff();
-void resetPass();
+std::string Staff();
+void resetPassNV(const std::string &username);
 #endif

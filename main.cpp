@@ -137,7 +137,7 @@ void menu(){
         case 1:
         {   
             system("cls");
-            Staff();
+            string maNV=Staff();
             system("pause");
             Staff:
             menuStaff();
@@ -171,7 +171,7 @@ void menu(){
                 {
                     system("cls");
                     Hoadon p;
-                    Cashier(p);
+                    Cashier(p,maNV);
                     system("pause");
                     goto Staff;
                     break;
@@ -179,7 +179,7 @@ void menu(){
                 case 4:
                 {
                     system("cls");
-                    resetPassNV();
+                    resetPassNV(maNV);
                     goto Staff;
                     break;
                 }

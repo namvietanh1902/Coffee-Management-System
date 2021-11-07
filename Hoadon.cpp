@@ -53,7 +53,7 @@ ostream& operator<<(ostream& out,const Hoadon &p){
     out<<"Tong gia tien: "<<p.price<<endl;
     return out;
 }
-void Cashier(Hoadon &p){
+void Cashier(Hoadon &p,const string &maNV){
     Nhapngay:
     cout<<"Nhap ngay thu ngan: ";cin>>p.day>>p.month>>p.year;
     if(KiemTraNgay(p.day,p.month,p.year)==0){
@@ -67,21 +67,22 @@ void Cashier(Hoadon &p){
     }
     else{
     NhapmaNV:
-    Nhanvien *NV=new Nhanvien[MAX];
-    display(NV);
-    cout<<"Nhap ma nhan vien: ";cin>>p.maNV;
-    if(check_maNV(NV,p.maNV)==0){
-        TextColor5(12);cout<<"\nMa nhan vien khong hop le\n";TextColor5(7);
-        cout<<"\nBan co muon nhap lai ma nhan vien muon xem ?(y/n) : ";
-        char t;cin>>t;
-        if(t=='y'){
-            system("cls");
-            cout<<"Nhap ngay thu ngan: "<<p.day<<"/"<<p.month<<"/"<<p.year;
-            goto NhapmaNV;
-        }
-    }
-    else{
+    // Nhanvien *NV=new Nhanvien[MAX];
+    // display(NV);
+    // cout<<"Nhap ma nhan vien: ";cin>>p.maNV;
+    // if(check_maNV(NV,p.maNV)==0){
+    //     TextColor5(12);cout<<"\nMa nhan vien khong hop le\n";TextColor5(7);
+    //     cout<<"\nBan co muon nhap lai ma nhan vien muon xem ?(y/n) : ";
+    //     char t;cin>>t;
+    //     if(t=='y'){
+    //         system("cls");
+    //         cout<<"Nhap ngay thu ngan: "<<p.day<<"/"<<p.month<<"/"<<p.year;
+    //         goto NhapmaNV;
+    //     }
+    // }
+    // else{
     ofstream log;
+    p.maNV=maNV;
     log.open("History/log.txt",ios::app);
     cout<<"Nhap ma hoa don: ";cin>>p.maHD;
     ofstream file; 
@@ -136,7 +137,7 @@ void Cashier(Hoadon &p){
         }
         }
     }
-}
+
 void display(Hoadon &p){
     hoadon:
     ifstream in;

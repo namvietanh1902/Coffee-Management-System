@@ -3,5 +3,5 @@
 #include "PasswordNV.h"
 
 void Manager();
-void resetPassNV();
+void resetPass();
 #endif

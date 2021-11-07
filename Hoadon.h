@@ -17,7 +17,7 @@ class Hoadon{
     public:
         Hoadon();
         ~Hoadon();
-        friend void Cashier(Hoadon &p);
+        friend void Cashier(Hoadon &p,const string &maNV);
         friend  void display(Hoadon &p);
         friend ostream& operator<<(ostream& out,const Hoadon &p);
 };

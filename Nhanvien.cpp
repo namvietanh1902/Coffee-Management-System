@@ -163,6 +163,9 @@ void display(Nhanvien* p){
 }
 void Add(Nhanvien* p){
     add:
+    string pass;
+    ofstream out;
+    out.open("Password/staff.txt",ios::app);
     cout<<endl;InLine1(45);TextColor1(11);
     cout<<"Them  Nhan Vien";TextColor1(7);
     InLine1(45);cout<<endl;
@@ -171,9 +174,12 @@ void Add(Nhanvien* p){
     file2.open("Nhanvien/Nhanvien.txt",ios::app);
     if(!file2.is_open()) return;
     cin>>x;
+    cout<<"Nhap mat khau cho nhan vien nay: ";cin>>pass;
+    out<<x.maNV<<" "<<pass<<endl;
     file2<<x;
     getInfo(p);
     file2.close();
+    out.close();
     TextColor1(10);cout<<"\n\t  Da them thanh cong\n";TextColor1(7);
     cout<<"\nBan co muon tiep tuc them nhan vien?(y/n) : ";
     char t;cin>>t;getchar();

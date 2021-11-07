@@ -31,11 +31,11 @@ void passInput(string &x){
 
 }while(c!=13 || c!=' ');
 }
-void Staff(){
+std::string Staff(){
     string _Username,_Pass,username,pass;
     ifstream in;
+    bool found=false;
     in.open("Password/staff.txt");
-    in>>username>>pass;
     Man:
     cout<<"\n\n\n";
 	cout<<"\t\t\t\t\t\t\t+-------------------+"<<endl;
@@ -45,9 +45,14 @@ void Staff(){
     cout<<"\t\t\t\t\t\tUsername : ";cin>>_Username;
     cout<<"\n";
     cout<<"\t\t\t\t\t\tPassword : ";
-    
     passInput(_Pass);
-    if (_Username==username&&pass==_Pass)
+    while(in>>username>>pass){
+        if (_Username==username&&pass==_Pass) {
+            found =true;
+            break;}
+
+    }
+    if (found)
     {
         TextColor7(10);cout<<"\n\n\t\t\t\t\t\t\tLogged in successfully!\n";TextColor7(7);
          }
@@ -73,12 +78,15 @@ void Staff(){
     }
     }
     in.close();
+    return _Username;
 }
-void resetPassNV(){
-    string _Pass,username,pass,newpass,data;
+void resetPassNV(const string &username){
+    string _Pass,_Username,pass,newpass,data;
     ifstream in;
     in.open("Password/staff.txt");
-    in>>username>>pass;
+    while(in>>_Username>>pass){
+        if (username==_Username) break;
+    }
     Reset:
     cout<<"\n\n\n";
 	cout<<"\t\t\t\t\t\t\t+--------------------------+"<<endl;
@@ -88,8 +96,6 @@ void resetPassNV(){
     passInput(_Pass);
     if (_Pass==pass){
         datlai:
-        newpass="";
-        data="";
         cout<<"\n\n\t\t\t\t\t\t\t New password : ";
         passInput(newpass);
         cout<<"\n\n\t\t\t\t\t     Retype your new password : ";
@@ -98,9 +104,19 @@ void resetPassNV(){
            
             TextColor7(10);cout<<"\n\n\t\t\t\t\t\t\tSuccessful change\n\n";TextColor7(7);
             ofstream out;
-            out.open("Password/staff.txt",ios::trunc);
-            out<<username<<" "<<newpass;
+            out.open("temp.txt");
+            ifstream in;
+            in.open("Password/staff.txt");
+            while(in>>_Username>>pass){
+                if (username==_Username){
+                    out<<_Username<<" "<<newpass<<endl;
+                }
+                else out<<_Username<<" "<<pass<<endl;
+            }
+            remove("Password/staff.txt");
+            rename("temp.txt","Password/staff.txt");
             system("pause");
+            in.close();
             out.close();
         }
         else{
