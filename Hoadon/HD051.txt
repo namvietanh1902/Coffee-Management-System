@@ -1,0 +1,6 @@
+Ngay thu ngan: 8/11/2021
+Nhan vien thu ngan: NV001
+Ten mon                       So luong  Thanh tien
+Sg Cafe Milk                  5         110000    
+Sg Cafe                       1         18000     
+Tong gia tien: 110000

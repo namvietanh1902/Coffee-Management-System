@@ -66,21 +66,6 @@ void Cashier(Hoadon &p,const string &maNV){
         }
     }
     else{
-    NhapmaNV:
-    // Nhanvien *NV=new Nhanvien[MAX];
-    // display(NV);
-    // cout<<"Nhap ma nhan vien: ";cin>>p.maNV;
-    // if(check_maNV(NV,p.maNV)==0){
-    //     TextColor5(12);cout<<"\nMa nhan vien khong hop le\n";TextColor5(7);
-    //     cout<<"\nBan co muon nhap lai ma nhan vien muon xem ?(y/n) : ";
-    //     char t;cin>>t;
-    //     if(t=='y'){
-    //         system("cls");
-    //         cout<<"Nhap ngay thu ngan: "<<p.day<<"/"<<p.month<<"/"<<p.year;
-    //         goto NhapmaNV;
-    //     }
-    // }
-    // else{
     ofstream log;
     p.maNV=maNV;
     log.open("History/log.txt",ios::app);
@@ -114,7 +99,15 @@ void Cashier(Hoadon &p,const string &maNV){
         break;} 
     }
     cout<<"Nhap so luong: ";cin>>p.soluong[p.total];
-    p.price+=p.soluong[p.total]*p.Menu[p.total].getprice();
+    for(int i=0;i<p.total;i++){
+        if (p.Menu[i].getmaItem()==p.Menu[p.total].getmaItem()){
+            p.soluong[i]+=p.soluong[p.total];
+            p.total--;
+        }
+    }
+
+ //   p.price+=p.soluong[p.total]*p.Menu[p.total].getprice();
+ 
     p.total++;
     cout<<"Thanh tien?\n1.Khong\n2.Co\n";
     int choice;
@@ -126,6 +119,9 @@ void Cashier(Hoadon &p,const string &maNV){
         case 2:
             break;
             return;
+    }
+    for (int i=0;i<p.total-1;i++){
+        p.price+=p.soluong[i]*p.Menu[i].getprice();
     }
     log<<p.day<<" "<<p.month<<" "<<p.year<<" "<<p.maNV<<" "<<p.maHD<<" "<<p.price<<endl;
     file<<p;
